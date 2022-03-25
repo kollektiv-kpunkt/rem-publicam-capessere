@@ -1,0 +1,48 @@
+.HeroWrapper {
+  background-image: linear-gradient(180deg, var(--prim) 50%, white 50%);
+}
+
+#heroine-img {
+  margin-top: 5rem;
+  position: relative;
+  padding-bottom: calc(100% / 16 * 9);
+}
+
+#heroine-img #heroine-img-blind,
+#heroine-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#heroine-img img {
+  object-fit: cover;
+}
+
+#heroine-img #heroine-img-blind {
+  z-index: 3;
+  background-color: white;
+  mix-blend-mode: saturation;
+}
+
+#heroine-testimonial-wrapper {
+  width: calc(50% - 5vw);
+  margin-right: 5vw;
+  margin-left: auto;
+  position: relative;
+  z-index: 100;
+  transform: translateY(-50%);
+}
+
+#heroine-testimonial {
+  font-family: "Replica";
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 1.5rem;
+  background-color: var(--prim);
+  color: white;
+  margin-bottom: 1.5rem;
+}

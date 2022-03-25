@@ -9,7 +9,3 @@ html {
 :root {
   --prim: #e53136;
 }
-
-html {
-  background-color: var(--prim);
-}

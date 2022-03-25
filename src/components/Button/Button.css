@@ -7,6 +7,12 @@
   background-color: var(--backgroundcolor);
   color: var(--textcolor);
   box-sizing: border-box;
+  font-family: "Replica";
+  text-transform: uppercase;
+  line-height: 0.8;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 
   --bordercolor: var(--backgroundcolor);
   --backgroundcolor: var(--prim);
@@ -16,6 +22,7 @@
 }
 
 .button:hover {
+  -webkit-filter: brightness(1.15);
   filter: brightness(1.15);
 }
 
@@ -25,12 +32,26 @@
   --textcolor: var(--prim);
 }
 
+.button.black {
+  --bordercolor: var(--backgroundcolor);
+  --backgroundcolor: black;
+  --textcolor: white;
+}
+
 .button.line {
   --bordercolor: var(--backgroundcolor);
   background-color: transparent;
   --textcolor: var(--backgroundcolor);
 }
 
-.button.neg:hover {
+.button.neg:hover,
+.button.line:hover {
   opacity: 0.8;
+}
+
+.button.arrow::after {
+  content: "\203a";
+  font-size: 1.5em;
+  line-height: 0;
+  margin-left: 0.15em;
 }
