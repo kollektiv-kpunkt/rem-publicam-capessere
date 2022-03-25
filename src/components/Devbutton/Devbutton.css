@@ -1,0 +1,10 @@
+.K-Devbutton {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background-color: beige;
+  font-weight: 900;
+  text-transform: uppercase;
+}
