@@ -45,7 +45,8 @@
 }
 
 .button.neg:hover,
-.button.line:hover {
+.button.line:hover,
+.button.black:hover {
   opacity: 0.8;
 }
 
@@ -54,4 +55,10 @@
   font-size: 1.5em;
   line-height: 0;
   margin-left: 0.15em;
+  display: inline-block;
+  transition: 0.125s ease transform;
+}
+
+.button.arrow:hover::after {
+  transform: translateX(0.15em);
 }
