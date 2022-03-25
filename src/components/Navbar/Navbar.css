@@ -1,0 +1,28 @@
+.NavbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+
+.NavbarWrapper nav {
+  width: calc(100% - 3rem);
+  /* max-width: 2048px; */
+}
+
+.NavbarWrapper ul li {
+  margin: auto;
+}
+
+.NavbarWrapper ul li a {
+  font-family: "Replica";
+  text-transform: uppercase;
+  margin-left: 2.5rem;
+  line-height: 80%;
+  color: white;
+}
+
+.NavbarWrapper ul li a.marginleft {
+  margin-left: 1rem;
+}

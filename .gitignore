@@ -148,3 +148,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Project Specifics
+/src/styles/fonts/*
+!/src/styles/fonts/fonts.css

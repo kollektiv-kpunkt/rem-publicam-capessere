@@ -1,0 +1,36 @@
+.button {
+  padding: 0.65em 1.5em 0.45em 1.5em;
+  border: 0.25em var(--bordercolor) solid;
+  letter-spacing: 0.05em;
+  border-radius: 0.5em;
+  display: block;
+  background-color: var(--backgroundcolor);
+  color: var(--textcolor);
+  box-sizing: border-box;
+
+  --bordercolor: var(--backgroundcolor);
+  --backgroundcolor: var(--prim);
+  --textcolor: white;
+
+  transition: 0.125s ease filter, 0.125s ease opacity;
+}
+
+.button:hover {
+  filter: brightness(1.15);
+}
+
+.button.neg {
+  --bordercolor: var(--backgroundcolor);
+  --backgroundcolor: white;
+  --textcolor: var(--prim);
+}
+
+.button.line {
+  --bordercolor: var(--backgroundcolor);
+  background-color: transparent;
+  --textcolor: var(--backgroundcolor);
+}
+
+.button.neg:hover {
+  opacity: 0.8;
+}
