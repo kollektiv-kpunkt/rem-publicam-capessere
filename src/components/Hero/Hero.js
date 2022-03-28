@@ -6,7 +6,7 @@ import LargeContainer from "../containers/LargeContainer/LargeContainer";
 import Button from "../Button/Button";
 
 const Hero = (props) => (
-  <div className="HeroWrapper">
+  <div className="HeroWrapper mb-20">
     <LargeContainer>
       <div id="heroine-img">
         <div id="heroine-img-blind"></div>

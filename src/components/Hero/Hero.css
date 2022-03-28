@@ -33,7 +33,6 @@
   margin-left: auto;
   position: relative;
   z-index: 100;
-  transform: translateY(-50%);
 }
 
 #heroine-testimonial {
@@ -45,4 +44,5 @@
   background-color: var(--prim);
   color: white;
   margin-bottom: 1.5rem;
+  margin-top: -30%;
 }
