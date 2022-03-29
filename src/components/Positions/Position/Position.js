@@ -6,7 +6,14 @@ import Button from "../../Button/Button";
 class Position extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    alert("Folgt: Darstellung in Arbeit");
+  };
 
   render() {
     return (
@@ -20,19 +27,13 @@ class Position extends React.Component {
               <p className="text-sm">{this.props.content}</p>
             </div>
           </div>
-          <Button className="neg line arrow text-sm">Weiterlesen</Button>
+          <Button className="neg line arrow text-sm" onClick={this.handleClick}>
+            Weiterlesen
+          </Button>
         </div>
       </div>
     );
   }
 }
-
-Position.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Position.defaultProps = {
-  // bla: 'test',
-};
 
 export default Position;

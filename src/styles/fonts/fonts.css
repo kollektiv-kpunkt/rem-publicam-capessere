@@ -89,3 +89,7 @@ h6 {
   line-height: 1;
   margin-bottom: min(0.3em, 27px);
 }
+
+p + p {
+  margin-top: 0.75rem;
+}

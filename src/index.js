@@ -9,6 +9,7 @@ import Hero from "./components/Hero/Hero";
 import Intro from "./components/Intro/Intro";
 import CallToAction from "./components/CallToAction/CallToAction";
 import Positions from "./components/Positions/Positions";
+import FooterCtA from "./components/FooterCtA/FooterCtA";
 
 ReactDOM.render(
   <div>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Intro />
       <CallToAction />
       <Positions />
+      <FooterCtA />
     </App>
     <Devbutton figmalink="https://www.figma.com/file/Zu1qFcUmIZAQf8FNy68Zg3/PN-35-Proto?node-id=0%3A1" />
   </div>,

@@ -20,6 +20,10 @@ class Navbar extends React.Component {
     }
 
     document.addEventListener("scroll", () => {
+      if (window.scrollY < 0) {
+        console.log("Fuck you Safari");
+        return;
+      }
       if (window.scrollY > this.oldScroll) {
         this.setState({
           isScroll: "hidescroll",
