@@ -36,7 +36,7 @@
 
 .NavbarWrapper .scrollbar {
   background-color: transparent;
-  transition: 0.25s ease background-color;
+  transition: 0.25s ease background-color, 0.25s ease transform;
 }
 
 .NavbarWrapper .scrollbar.scroll {
@@ -61,4 +61,8 @@
   color: white;
   --backgroundcolor: black;
   background-color: black;
+}
+
+.NavbarWrapper .scrollbar.hidescroll {
+  transform: translateY(-100%);
 }

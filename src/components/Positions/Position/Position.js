@@ -14,7 +14,7 @@ class Position extends React.Component {
         className={this.props.type ? this.props.type + " position" : "position"}
       >
         <div className="PositionWrapper">
-          <div className="position-outer text-white bg-primary p-10 box-border">
+          <div className="position-outer text-white bg-primary p-6 box-border">
             <div className="position-inner">
               <h2 className="text-xl">{this.props.title}</h2>
               <p className="text-sm">{this.props.content}</p>

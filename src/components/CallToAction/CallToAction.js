@@ -51,7 +51,7 @@ class CallToAction extends React.Component {
   render() {
     return (
       <div className="CallToActionWrapper my-20">
-        <LargeContainer>
+        <LargeContainer id="mitmachen">
           <Column>
             <Slide delay={500} triggerOnce>
               <Fade delay={600} triggerOnce>

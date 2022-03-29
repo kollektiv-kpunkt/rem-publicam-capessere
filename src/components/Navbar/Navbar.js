@@ -8,40 +8,39 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isScroll: "",
+      barState: "",
     };
   }
 
   componentDidMount() {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 80) {
       this.setState({
-        isScroll: true,
+        isScroll: "scroll",
       });
     }
 
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > this.oldScroll) {
         this.setState({
-          isScroll: true,
+          isScroll: "hidescroll",
+        });
+      } else if (window.scrollY > 80) {
+        this.setState({
+          isScroll: "scroll",
         });
       } else {
         this.setState({
-          isScroll: false,
+          isScroll: "",
         });
       }
+      this.oldScroll = window.scrollY;
     });
   }
 
   render() {
     return (
       <div className="NavbarWrapper">
-        <div
-          className={
-            this.state.isScroll
-              ? "scrollbar scroll flex w-full"
-              : "scrollbar flex w-full"
-          }
-        >
+        <div className={this.state.isScroll + " scrollbar flex w-full"}>
           <nav className="flex justify-between mx-auto my-3">
             <div id="logo-container" className="my-auto">
               <Logo />
