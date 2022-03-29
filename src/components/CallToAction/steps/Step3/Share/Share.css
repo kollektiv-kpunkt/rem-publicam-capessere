@@ -1,0 +1,43 @@
+#share-inner textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #ffffff21;
+  color: white;
+  border: 3px solid white;
+  line-height: 1.15;
+  resize: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+#share-inner textarea::-webkit-scrollbar {
+  display: none;
+}
+
+#share-buttons .ButtonWrapper {
+  width: calc(50% - 0.25rem);
+}
+
+#share-buttons .ButtonWrapper {
+  width: calc(50% - 0.25rem);
+}
+
+#share-buttons .button {
+  width: 100%;
+}
+
+#share-buttons .button#whatsapp {
+  --backgroundcolor: #25d366;
+}
+
+#share-buttons .button#telegram {
+  --backgroundcolor: #0088cc;
+}
+
+#share-buttons .button#signal {
+  --backgroundcolor: #3775e0;
+}
+
+#share-buttons .button#facebook {
+  --backgroundcolor: #4267b2;
+}

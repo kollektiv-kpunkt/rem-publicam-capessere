@@ -25,7 +25,7 @@ const Intro = (props) => (
             sagittis. Odio varius ultrices egestas gravida ullamcorper sit mi et
             aliquam.
           </p>
-          <Button link="#" cname="black arrow">
+          <Button link="#" className="black arrow">
             Positionen
           </Button>
         </div>

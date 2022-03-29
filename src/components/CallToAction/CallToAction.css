@@ -1,1 +1,114 @@
-/* your css code */
+.CallToActionWrapper {
+  background: linear-gradient(
+    180deg,
+    white 1rem,
+    var(--prim) 1rem,
+    var(--prim) calc(100% - 1rem),
+    white calc(100% - 1rem)
+  );
+}
+
+#cta-img-wrapper {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+#cta-img-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#cta-img-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 3;
+}
+
+#cta-image-blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  z-index: 4;
+  mix-blend-mode: saturation;
+}
+
+#cta-image-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(-45deg, #000000 0%, white 70%);
+  z-index: 6;
+  mix-blend-mode: multiply;
+}
+
+#cta-img-content {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2rem;
+  width: calc(50% - 1rem);
+  z-index: 7;
+  color: white;
+  text-align: end;
+}
+
+/* Form */
+
+.StepWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  width: calc(50% - 0.75rem);
+}
+
+.input-wrapper.fullwidth {
+  width: 100%;
+}
+
+.input-wrapper label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+.input-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid white;
+  background-color: transparent;
+  padding: 0.5em 0;
+  outline: none;
+  color: white;
+}
+
+.input-wrapper.checkbox {
+  display: flex;
+}
+
+.input-wrapper.checkbox label {
+  width: calc(100% - 1.5rem);
+  margin-left: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.input-wrapper.checkbox label.font-bold {
+  font-weight: bold;
+}

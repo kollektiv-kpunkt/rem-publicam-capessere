@@ -19,12 +19,12 @@ const Navbar = (props) => (
             <a href="#">Anliegen</a>
           </li>
           <li>
-            <Button link="#mitmachen" cname="neg line">
+            <Button link="#mitmachen" className="neg line">
               Mitmachen
             </Button>
           </li>
           <li>
-            <Button link="#spenden" cname="neg line marginleft">
+            <Button link="#spenden" className="neg line marginleft">
               Spenden
             </Button>
           </li>

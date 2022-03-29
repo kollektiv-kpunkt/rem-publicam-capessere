@@ -20,7 +20,7 @@ class Column extends React.Component {
   render() {
     return (
       <div className="ColumnWrapper">
-        <div class={this.classes}>{this.props.children}</div>
+        <div className={this.classes}>{this.props.children}</div>
       </div>
     );
   }
