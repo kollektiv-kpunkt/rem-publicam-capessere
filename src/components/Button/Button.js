@@ -26,6 +26,7 @@ const Button = (props) => {
           href={props.link}
           className={`button ${props.className ? props.className : ""}`}
           onClick={props.onClick ? props.onClick : null}
+          target={props.target ? props.target : "_self"}
         >
           {props.children}
         </a>
