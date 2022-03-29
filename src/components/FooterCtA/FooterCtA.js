@@ -5,7 +5,7 @@ import LargeContainer from "../containers/LargeContainer/LargeContainer";
 import Button from "../Button/Button";
 
 const FooterCtA = (props) => (
-  <div className="FooterCtAWrapper my-20">
+  <div className="FooterCtAWrapper my-32">
     <LargeContainer>
       <div className="FooterCtA-container">
         <div id="FooterCtA-outer">

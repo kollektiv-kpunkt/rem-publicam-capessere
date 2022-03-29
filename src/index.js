@@ -10,6 +10,7 @@ import Intro from "./components/Intro/Intro";
 import CallToAction from "./components/CallToAction/CallToAction";
 import Positions from "./components/Positions/Positions";
 import FooterCtA from "./components/FooterCtA/FooterCtA";
+import Footer from "./components/Footer/Footer";
 
 ReactDOM.render(
   <div>
@@ -20,6 +21,7 @@ ReactDOM.render(
       <CallToAction />
       <Positions />
       <FooterCtA />
+      <Footer />
     </App>
     <Devbutton figmalink="https://www.figma.com/file/Zu1qFcUmIZAQf8FNy68Zg3/PN-35-Proto?node-id=0%3A1" />
   </div>,
