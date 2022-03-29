@@ -4,11 +4,11 @@
   left: 0;
   width: 100%;
   display: flex;
+  z-index: 1000;
 }
 
 .NavbarWrapper nav {
   width: calc(100% - 3rem);
-  /* max-width: 2048px; */
 }
 
 .NavbarWrapper ul li {
@@ -25,4 +25,40 @@
 
 .NavbarWrapper ul li a.marginleft {
   margin-left: 1rem;
+}
+
+.NavbarWrapper svg {
+  height: 3.5rem;
+  width: 3.5rem;
+  object-fit: contain;
+  transition: 0.25s ease height, 0.25s ease width;
+}
+
+.NavbarWrapper .scrollbar {
+  background-color: transparent;
+  transition: 0.25s ease background-color;
+}
+
+.NavbarWrapper .scrollbar.scroll {
+  background-color: white;
+}
+
+.NavbarWrapper .scrollbar.scroll svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.NavbarWrapper .scrollbar.scroll svg #svg-logo-border,
+.NavbarWrapper .scrollbar.scroll svg #svg-logo-background {
+  fill: var(--prim);
+}
+
+.NavbarWrapper .scrollbar.scroll ul li a {
+  color: var(--black);
+}
+
+.NavbarWrapper .scrollbar.scroll ul li a.button {
+  color: white;
+  --backgroundcolor: black;
+  background-color: black;
 }
