@@ -9,7 +9,7 @@ class Column extends React.Component {
       this.classes += "cols-" + props.columns + " columns";
     } else {
       this.classes +=
-        `cols-${React.Children.count(props.children)}` + "cols columns";
+        `cols-${React.Children.count(props.children)}` + " columns";
     }
 
     if (props.layout) {
