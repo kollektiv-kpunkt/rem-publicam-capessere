@@ -21,7 +21,7 @@ class CallToAction extends React.Component {
             <div id="cta-img">
               <div id="cta-img-wrapper">
                 <div id="cta-img-inner">
-                  <img src="/Cta_Jf.png" />
+                  <img src="/Cta_JF.png" />
                   <div id="cta-img-content">
                     <h2 className="text-4xl">Zusammen für Zürich</h2>
                     <p className="text-end">
