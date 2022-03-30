@@ -4,11 +4,13 @@
   "description": "Modern webpage for candidates running for office. Originally developed for the two candidates by the social democrats running for office in the canton of Zurich.",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "fast-glob": "^3.2.11",
     "laravel-mix": "^6.0.43",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-livereload-plugin": "^1.2.0"
   },
   "scripts": {
     "dev": "npm run development",

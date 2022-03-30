@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["*.php", "**/*.php"],
+  content: require("fast-glob").sync(["./**/*.php", "*.php"]),
   theme: {
     extend: {},
   },
