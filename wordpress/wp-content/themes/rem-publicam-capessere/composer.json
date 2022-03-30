@@ -1,0 +1,18 @@
+{
+    "name": "kollektiv-kpunkt/rem-publicam-capessere",
+  "description": "Modern webpage for candidates running for office. Originally developed for the two candidates by the social democrats running for office in the canton of Zurich.",
+  "type":"wordpress-theme",
+  "minimum-stability" : "stable",
+  "authors": [
+    {
+      "email": "timothy@kpunkt.ch",
+      "name": "timothyoesch"
+    }
+  ],
+  "require": {
+	  "timber/timber": "1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.7.16|6.*"
+  }
+}
