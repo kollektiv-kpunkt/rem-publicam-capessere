@@ -1,0 +1,35 @@
+#footer-logo-container svg #svg-logo-background,
+#footer-logo-container svg #svg-logo-border {
+  fill: #262626;
+}
+
+#FooterCtA-content {
+  transform: translateX(-4rem);
+  opacity: 0;
+  transition: 0.5s ease transform, 0.5s ease opacity;
+}
+
+#FooterCtA-content.inViewport {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Mobile Styles */
+
+@media screen and (max-width: 1080px) {
+  #footer-lower {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #footer-menu-container ul {
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+  }
+
+  #footer-menu-container ul li {
+    width: calc(50% - 0.5rem);
+  }
+}

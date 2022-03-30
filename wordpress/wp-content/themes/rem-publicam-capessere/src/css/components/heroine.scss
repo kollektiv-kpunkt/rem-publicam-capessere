@@ -1,0 +1,95 @@
+.HeroWrapper {
+  background-image: linear-gradient(180deg, var(--prim) 50%, white 50%);
+}
+
+#heroine-img {
+  margin-top: 5rem;
+  position: relative;
+  padding-bottom: calc(100% / 16 * 9);
+  opacity: 0;
+  transition: 0.5s ease opacity;
+}
+
+#heroine-img.inViewport {
+  opacity: 1;
+}
+
+#heroine-img #heroine-img-blind,
+#heroine-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#heroine-img img {
+  object-fit: cover;
+}
+
+#heroine-img #heroine-img-blind {
+  z-index: 3;
+  background-color: white;
+  mix-blend-mode: saturation;
+}
+
+#heroine-testimonial-wrapper {
+  width: calc(50% - 5vw);
+  min-width: 500px;
+  margin-right: 5vw;
+  margin-left: auto;
+  position: relative;
+  z-index: 100;
+}
+
+#heroine-testimonial {
+  font-family: "Replica";
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 1.5rem;
+  background-color: var(--prim);
+  color: white;
+  margin-bottom: 1.5rem;
+  margin-top: -30%;
+}
+
+/* Mobile Styles */
+
+@media screen and (max-width: 780px) {
+  .HeroWrapper {
+    background-image: linear-gradient(180deg, white 30%, var(--prim) 30%);
+  }
+
+  #heroine-img {
+    margin-top: 6rem;
+  }
+
+  #heroine-testimonial-wrapper {
+    width: 100%;
+    min-width: unset;
+    position: relative;
+  }
+
+  #heroine-testimonial {
+    margin-top: 0;
+    padding: 1.5rem 0;
+    margin-bottom: 0;
+  }
+
+  #heroine-buttons.flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #heroine-buttons .rpc-button.rpc-button-line {
+    --bordercolor: white;
+    --textcolor: white;
+  }
+
+  #heroine-buttons.flex .rpc-button {
+    width: 100%;
+    margin-left: 0;
+  }
+}

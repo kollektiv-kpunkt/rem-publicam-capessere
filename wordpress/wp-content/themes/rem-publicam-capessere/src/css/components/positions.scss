@@ -1,0 +1,133 @@
+.positions-grid {
+  gap: 1rem;
+}
+
+.positions-grid .position {
+  width: calc(50% - 0.5rem);
+  box-sizing: border-box;
+}
+
+.positions-grid .position.fullwidth {
+  width: 100%;
+}
+
+.PositionWrapper {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.position-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.positions-grid .position.fullwidth .PositionWrapper {
+  padding-bottom: calc(50% - 0.5rem);
+}
+
+.positions-grid .position.position .rpc-button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.positions-image-container {
+  position: relative;
+  padding-bottom: calc(100% / 10 * 3);
+  margin-top: calc((100% / 10 * 3 * -1) * 0.66);
+  z-index: -1;
+}
+
+.positions-image-container * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.positions-image-container img {
+  object-fit: cover;
+}
+
+.positions-image-container #positions-image-blind {
+  background: white;
+  mix-blend-mode: saturation;
+}
+
+/* Animmation */
+#positions-animation-wrapper {
+  transform: translateY(4rem);
+  opacity: 0;
+  transition: 0.5s ease transform, 0.5s ease opacity;
+}
+
+#positions-animation-wrapper.inViewport {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 1080px) {
+  .positions-image-container {
+    padding-bottom: 50%;
+    margin-top: calc((100% / 10 * 3 * -1) * 0.33);
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+  }
+
+  .position-outer {
+    padding: 1rem;
+  }
+  .positions-grid .position.position .rpc-button {
+    left: 1rem;
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+@media screen and (max-width: 1080px) and (min-width: 781px) {
+  .positions-grid .position {
+    width: 100%;
+  }
+
+  .positions-grid .position .PositionWrapper,
+  .positions-grid .position.fullwidth .PositionWrapper {
+    padding-bottom: 60%;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  #positionen .cols-2.columns {
+    display: block;
+  }
+
+  #positionen .cols-2.columns > div {
+    width: 100%;
+  }
+
+  #positionen .mb-72 {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .positions-grid .position {
+    width: 100%;
+  }
+
+  .positions-grid .position .PositionWrapper,
+  .positions-grid .position.fullwidth .PositionWrapper {
+    padding-bottom: 50%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .positions-grid .position .PositionWrapper,
+  .positions-grid .position.fullwidth .PositionWrapper {
+    padding-bottom: 66%;
+  }
+}

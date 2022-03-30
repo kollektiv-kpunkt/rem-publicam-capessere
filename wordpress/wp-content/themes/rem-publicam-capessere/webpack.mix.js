@@ -8,6 +8,10 @@ mix.webpackConfig({
 mix
   .setPublicPath("dist")
   .js("src/js/app.js", "dist")
+  .sass("src/resources/fonts/fonts.scss", "dist/fonts")
+  .options({
+    processCssUrls: false,
+  })
   .sass("src/css/style.scss", "dist")
   .postCss("src/css/theme.css", "dist", [
     require("tailwindcss"),

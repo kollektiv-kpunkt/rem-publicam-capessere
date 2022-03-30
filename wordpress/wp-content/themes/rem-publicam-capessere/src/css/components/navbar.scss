@@ -57,7 +57,7 @@
   color: var(--black);
 }
 
-.NavbarWrapper .scrollbar.scroll ul li a.button {
+.NavbarWrapper .scrollbar.scroll ul li a.rpc-button {
   color: white;
   --backgroundcolor: black;
   background-color: black;
@@ -65,4 +65,45 @@
 
 .NavbarWrapper .scrollbar.hidescroll {
   transform: translateY(-100%);
+}
+
+/* Mobile Styles */
+
+#menu-mobile-container {
+  display: none;
+}
+
+@media only screen and (max-width: 780px) {
+  #menu-container {
+    display: none;
+  }
+
+  #menu-mobile-container {
+    display: block;
+  }
+
+  #svg-logo-background,
+  #svg-logo-border {
+    fill: var(--prim);
+  }
+
+  .NavbarWrapper .scrollbar {
+    background-color: white;
+  }
+
+  #mobile-menu-button span {
+    font-family: "Replica";
+    text-transform: uppercase;
+    transform: translateY(2px);
+    color: var(--prim);
+  }
+
+  #mobile-menu-button #tofu-burger {
+    row-gap: 2px;
+  }
+  #mobile-menu-button #tofu-burger div {
+    width: 1rem;
+    height: 2px;
+    background-color: var(--prim);
+  }
 }

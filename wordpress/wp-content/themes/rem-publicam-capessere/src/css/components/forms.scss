@@ -1,0 +1,57 @@
+.StepWrapper:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  width: calc(50% - 0.75rem);
+}
+
+.input-wrapper.fullwidth {
+  width: 100%;
+}
+
+.input-wrapper label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+.input-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid white;
+  background-color: transparent;
+  padding: 0.5em 0;
+  outline: none;
+  color: white;
+}
+
+.input-wrapper.checkbox {
+  display: flex;
+}
+
+.input-wrapper.checkbox label {
+  width: 100%;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.input-wrapper.checkbox input[type="checkbox"] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f0c8";
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+
+.input-wrapper.checkbox input[type="checkbox"]:checked + label:before {
+  content: "\f14a";
+}
+
+.input-wrapper.checkbox label.font-bold {
+  font-weight: bold;
+}

@@ -1,0 +1,21 @@
+@import "navbar.scss";
+@import "buttons.scss";
+@import "heroine.scss";
+@import "intro.scss";
+@import "forms.scss";
+@import "cta.scss";
+@import "share.scss";
+@import "positions.scss";
+@import "footerCtA.scss";
+@import "footer.scss";
+
+.rpc-image-blind {
+  background-color: white;
+  mix-blend-mode: saturation;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}

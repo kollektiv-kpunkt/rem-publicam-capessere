@@ -13,15 +13,29 @@
             </div>
             <div id="menu-container" class="my-auto">
                 <ul class="flex">
-                    <li><a href="#">Über mich</a></li>
-                    <li><a href="#">Anliegen</a></li>
+                    <li><a href="#ueber-mich">Über mich</a></li>
+                    <li><a href="#positionen">Anliegen</a></li>
                     <li>
-                        <div class="ButtonWrapper"><a id="" type="submit" href="#mitmachen" class="button neg line" target="_self">Mitmachen</a></div>
+                        <div class="ButtonWrapper"><a id="" type="submit" href="#mitmachen" class="rpc-button rpc-button-neg rpc-button-line" target="_self">Mitmachen</a></div>
                     </li>
                     <li>
-                        <div class="ButtonWrapper"><a id="" type="submit" href="#spenden" class="button neg line marginleft" target="_self">Spenden</a></div>
+                        <div class="ButtonWrapper"><a id="" type="submit" href="/spenden" class="rpc-button rpc-button-neg rpc-button-line marginleft" target="_self">Spenden</a></div>
                     </li>
                 </ul>
+            </div>
+            <div id="menu-mobile-container" class="my-auto">
+                <div id="menu-mobile-inner" class="flex">
+                    <div id="mobile-menu-button" class="flex gap-2">
+                        <span class="my-auto text-xl text-white">
+                            Menu
+                        </span>
+                        <div id="tofu-burger" class="flex flex-col justify-center">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>

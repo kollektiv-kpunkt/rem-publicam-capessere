@@ -1,5 +1,20 @@
 @import "root.scss";
 
+@import "typography/typo.scss";
+
+@import "components/style.scss";
 @import "components/containers/largecontainer.css";
 @import "components/containers/mediumcontainer.css";
-@import "components/navbar.scss";
+@import "components/containers/columns.css";
+
+html {
+  overflow-x: hidden;
+}
+
+:target {
+  padding-top: 5vh;
+}
+
+.target-wrapper:target {
+  padding-top: 1px;
+}

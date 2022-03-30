@@ -1,0 +1,146 @@
+.CallToActionWrapper {
+  background: linear-gradient(
+    180deg,
+    white 1rem,
+    var(--prim) 1rem,
+    var(--prim) calc(100% - 1rem),
+    white calc(100% - 1rem)
+  );
+}
+
+#cta-img-wrapper {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+#cta-img-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#cta-img-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 3;
+}
+
+#cta-image-blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  z-index: 4;
+  mix-blend-mode: saturation;
+}
+
+#cta-image-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(-45deg, #000000 0%, white 70%);
+  z-index: 6;
+  mix-blend-mode: multiply;
+}
+
+#cta-img-content {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2rem;
+  width: calc(50% - 1rem);
+  z-index: 7;
+  color: white;
+  text-align: end;
+}
+
+/* Animations */
+#cta-img {
+  transform: translateX(-10vw);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease transform, opacity 1s ease;
+}
+
+#cta-form {
+  transform: translateX(10vw);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease transform, opacity 1s ease;
+}
+
+#cta-img.inViewport,
+#cta-form.inViewport {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 1080px) {
+  .CallToActionWrapper {
+    background: linear-gradient(180deg, white 250px, var(--prim) 250px);
+  }
+
+  #cta-img {
+    max-width: 500px;
+    margin: auto;
+  }
+
+  #mitmachen .cols-2.columns {
+    display: block;
+  }
+
+  #mitmachen .cols-2.columns > div {
+    width: 100%;
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  #mitmachen form .ButtonWrapper,
+  #mitmachen form .rpc-button {
+    width: 100%;
+  }
+
+  #cta-form {
+    transform: translateY(10vw);
+  }
+  #cta-img {
+    transform: translateY(-10vw);
+  }
+}
+
+@media screen and (max-width: 532px) {
+  .CallToActionWrapper {
+    background: linear-gradient(
+      180deg,
+      white calc((100vw - 2rem) * 0.5),
+      var(--prim) calc((100vw - 2rem) * 0.5)
+    );
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #cta-img-content {
+    width: 80%;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  #cta-img-content h2 {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+}
