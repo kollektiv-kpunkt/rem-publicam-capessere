@@ -32,7 +32,7 @@ try {
         $mclistid,
         md5($data["email"]),
         [
-            "note" => $data["uuid"]
+            "note" => "Form submission: " + $data["uuid"]
         ]
     );
 } catch (GuzzleHttp\Exception\ClientException $e) {
