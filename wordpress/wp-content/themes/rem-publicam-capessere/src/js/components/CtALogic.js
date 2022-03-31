@@ -19,9 +19,7 @@ document
         .getAttribute("data-step-id")
         .split("form-step")[1]
     );
-    console.log(step);
     let nextStep = step + 1;
-    console.log(nextStep);
     if (step === 1) {
       formData.firstname = this.querySelector("#firstname").value;
       formData.plz = this.querySelector("#plz").value;
@@ -32,24 +30,24 @@ document
       formData.donate = this.querySelector("#donate").checked;
     }
     (async () => {
-      const rawResponse = await fetch(
-        `/wp-content/themes/rem-publicam-capessere/api/v1/cta/step${step}.php`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const rawResponse = await fetch(`/api/v1/cta/step${step}`, {
+        method: "POST",
+        headers: {
+          // Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       const content = await rawResponse.json();
-      console.log(content);
+      if (content.success) {
+        this.querySelector(
+          `.CtAStep[data-step-id='form-step${step}']`
+        ).setAttribute("hidden", true);
+        this.querySelector(
+          `.CtAStep[data-step-id='form-step${nextStep}']`
+        ).removeAttribute("hidden");
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
     })();
-    this.querySelector(
-      `.CtAStep[data-step-id='form-step${step}']`
-    ).setAttribute("hidden", true);
-    this.querySelector(
-      `.CtAStep[data-step-id='form-step${nextStep}']`
-    ).removeAttribute("hidden");
   });

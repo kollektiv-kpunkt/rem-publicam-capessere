@@ -1,3 +1,5 @@
+@import "mobilenav.scss";
+
 .NavbarWrapper {
   position: fixed;
   top: 0;
@@ -22,6 +24,28 @@
   line-height: 80%;
   color: white;
 }
+
+@media only screen and (max-width: 1080px) {
+    .NavbarWrapper ul li a {
+        margin-left: 1.5rem;
+    }
+
+    #logo-container p {
+        color: var(--prim);
+        opacity: 1;
+        transition: 0.25s ease opacity, 0.25s ease color;
+    }
+}
+
+.NavbarWrapper .scrollbar.scroll #logo-container p {
+    opacity: 0;
+}
+
+.NavbarWrapper .scrollbar.menu-open #logo-container p {
+    opacity: 1;
+    color: white;
+}
+
 
 .NavbarWrapper ul li a.marginleft {
   margin-left: 1rem;
@@ -73,10 +97,14 @@
   display: none;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 980px) {
   #menu-container {
     display: none;
   }
+
+    .NavbarWrapper nav {
+width: calc(100% - 2rem);
+    }
 
   #menu-mobile-container {
     display: block;
@@ -106,4 +134,91 @@
     height: 2px;
     background-color: var(--prim);
   }
+}
+
+/* Open Menu Style */
+.NavbarWrapper .scrollbar.menu-open {
+    transform: translateY(0);
+    background-color: var(--prim);
+}
+
+.NavbarWrapper .scrollbar.menu-open svg {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.NavbarWrapper .scrollbar.menu-open svg #svg-logo-border {
+    fill: white;
+}
+
+.scrollbar.menu-open #mobile-menu-button span {
+    color: white;
+}
+
+.scrollbar.menu-open #mobile-menu-button #tofu-burger div {
+    background-color: white;
+}
+
+.scrollbar.menu-open #mobile-menu-button #tofu-burger div:nth-child(2) {
+    opacity: 0;
+}
+
+.scrollbar #mobile-menu-button #tofu-burger div:nth-child(1) {
+    --state1: translateY(0) rotate(0);
+    --state2: translateY(4px) rotate(0);
+    --state3: translateY(4px) rotate(45deg);
+}
+
+.scrollbar.menu-open #mobile-menu-button #tofu-burger div:nth-child(1) {
+    animation: tofuBurgerOpen 0.5s ease forwards;
+}
+
+.scrollbar.menu-close #mobile-menu-button #tofu-burger div:nth-child(1) {
+    animation: tofuBurgerClose 0.5s ease forwards;
+}
+
+.scrollbar #mobile-menu-button #tofu-burger div:nth-child(3) {
+    --state1: translateY(0) rotate(0);
+    --state2: translateY(-4px) rotate(0);
+    --state3: translateY(-4px) rotate(-45deg);
+}
+
+.scrollbar.menu-open #mobile-menu-button #tofu-burger div:nth-child(3) {
+    animation: tofuBurgerOpen 0.5s ease forwards;
+}
+
+.scrollbar.menu-close #mobile-menu-button #tofu-burger div:nth-child(3) {
+    animation: tofuBurgerClose 0.5s ease forwards;
+}
+
+@keyframes tofuBurgerOpen {
+    0% {
+        transform: var(--state1);
+    }
+    50% {
+        transform: var(--state2);
+    }
+    100% {
+        transform: var(--state3);
+    }
+}
+
+@keyframes tofuBurgerClose {
+    0% {
+        transform: var(--state3);
+    }
+    50% {
+        transform: var(--state2);
+    }
+    100% {
+        transform: var(--state1);
+    }
+}
+
+#main-content {
+    transition: 0.5s ease filter;
+}
+
+#main-content.menu-open {
+    filter: opacity(0.5);
 }

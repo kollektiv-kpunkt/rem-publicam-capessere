@@ -1,0 +1,37 @@
+@media screen and (max-width: 980px) {
+    #mobile-nav-wrapper {
+        display: block;
+    }
+}
+
+#mobile-nav-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-height: 100vh;
+    background-color: var(--prim);
+    z-index: 999;
+    text-align: end;
+    transform: translateY(-100%);
+    transition: 0.5s ease transform;
+}
+
+#mobile-nav-wrapper.open {
+    transform: translateY(0);
+}
+
+#mobile-nav-inner {
+    padding: 6rem 2rem 2rem 2rem;
+}
+
+#mobile-nav-inner ul li {
+    font-family: "Replica";
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+#mobile-nav-inner ul li .rpc-button {
+    font-size: 1rem;
+    width: 100%;
+}

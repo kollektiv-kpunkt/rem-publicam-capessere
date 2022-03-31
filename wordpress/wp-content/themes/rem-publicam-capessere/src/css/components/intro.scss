@@ -22,6 +22,10 @@
   mix-blend-mode: saturation;
 }
 
+#intro-container {
+    max-width: 793px;
+}
+
 /* Mobile Styles */
 @media screen and (max-width: 780px) {
   #image-wrapper {

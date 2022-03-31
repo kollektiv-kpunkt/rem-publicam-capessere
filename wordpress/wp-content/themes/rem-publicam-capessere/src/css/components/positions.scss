@@ -13,7 +13,7 @@
 
 .PositionWrapper {
   position: relative;
-  padding-bottom: 100%;
+    padding-bottom: calc(100% / 3 * 4);
 }
 
 .position-outer {
@@ -25,7 +25,7 @@
 }
 
 .positions-grid .position.fullwidth .PositionWrapper {
-  padding-bottom: calc(50% - 0.5rem);
+padding-bottom: calc((50% - 0.5rem) / 3 * 4);
 }
 
 .positions-grid .position.position .rpc-button {
@@ -70,7 +70,6 @@
   opacity: 1;
 }
 
-/* Mobile Styles */
 @media screen and (max-width: 1080px) {
   .positions-image-container {
     padding-bottom: 50%;
