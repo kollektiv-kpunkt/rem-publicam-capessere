@@ -48,7 +48,7 @@
                 <path d="M30.2837 32.0685H26.3157L26.1097 32.276V37.7441L25.9037 37.9516H23.3957L23.1897 37.7441V23.4423L23.3957 23.2347H30.2837C33.2037 23.2347 35.2996 24.7055 35.2996 27.6561C35.2996 30.6067 33.2126 32.0775 30.2837 32.0775V32.0685ZM30.2837 25.7522H26.3157L26.1097 25.9597V29.3254L26.3157 29.5329H30.2837C31.5377 29.5329 32.3707 29.1088 32.3707 27.6381C32.3707 26.1673 31.5377 25.7432 30.2837 25.7432V25.7522Z" fill="white"></path>
                 </svg>
             </a>
-            <p class="leading-none my-auto text-neutral-800"><b>Jacqueline Fehr</b><br>in den Regierungsrat</p>
+            <p class="leading-none my-auto text-neutral-800"><b><?= get_bloginfo("name") ?></b><br><?= get_bloginfo("description") ?></p>
         </div>
         <div id="footer-menu-container" class="my-auto">
         <ul class="flex gap-10 font-bold text-neutral-800">
