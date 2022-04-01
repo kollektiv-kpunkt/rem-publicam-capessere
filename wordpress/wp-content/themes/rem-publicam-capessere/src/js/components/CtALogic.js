@@ -10,9 +10,8 @@ let formData = {
   donate: false,
 };
 
-document
-  .querySelector("#cta-form-wrapper form")
-  .addEventListener("submit", function (e) {
+function formLogic(form) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
     let step = parseInt(
       this.querySelector(".CtAStep:not([hidden])")
@@ -24,11 +23,12 @@ document
       formData.firstname = this.querySelector("#firstname").value;
       formData.plz = this.querySelector("#plz").value;
       formData.email = this.querySelector("#email").value;
-      formData.optin = this.querySelector("#optin").checked;
+      formData.optin = this.querySelector(".optin").checked;
     } else if (step === 2) {
-      formData.support = this.querySelector("#support").checked;
-      formData.donate = this.querySelector("#donate").checked;
+      formData.support = this.querySelector(".support").checked;
+      formData.donate = this.querySelector(".donate").checked;
     }
+    console.log(formData);
     (async () => {
       const rawResponse = await fetch(`/api/v1/cta/step${step}`, {
         method: "POST",
@@ -40,14 +40,65 @@ document
       });
       const content = await rawResponse.json();
       if (content.success) {
-        this.querySelector(
-          `.CtAStep[data-step-id='form-step${step}']`
-        ).setAttribute("hidden", true);
-        this.querySelector(
-          `.CtAStep[data-step-id='form-step${nextStep}']`
-        ).removeAttribute("hidden");
+        if (nextStep === 3 && formData.donate == true) {
+          window.location.href = "/spenden";
+        } else {
+          this.querySelector(
+            `.CtAStep[data-step-id='form-step${step}']`
+          ).setAttribute("hidden", true);
+          this.querySelector(
+            `.CtAStep[data-step-id='form-step${nextStep}']`
+          ).removeAttribute("hidden");
+        }
       } else {
+        console.log(content);
         alert("Something went wrong. Please try again.");
       }
     })();
+  });
+}
+
+if (document.querySelector(".cta-form-wrapper form")) {
+  document.querySelectorAll(".cta-form-wrapper form").forEach((form) => {
+    formLogic(form);
+  });
+}
+
+document
+  .querySelectorAll(".share-buttons .rpc-button")
+  .forEach(function (button) {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      let mobimsg = document
+        .querySelector(".share-buttons")
+        .getAttribute("data-sharetext");
+      let url = window.location.href.split("#")[0];
+      let button = e.target;
+      let type = button.getAttribute("data-type");
+      if (type == "whatsapp") {
+        window.open(
+          `https://api.whatsapp.com/send/?text=${encodeURIComponent(
+            mobimsg
+          )}%0A${encodeURIComponent(url)}`
+        );
+      } else if (type == "telegram") {
+        window.open(
+          `https://t.me/share/url?url=${encodeURIComponent(
+            url
+          )}&text=${encodeURIComponent(mobimsg)}`
+        );
+      } else if (type == "facebook") {
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            url
+          )}`
+        );
+      } else if (type == "email") {
+        window.open(
+          `mailto:?body=${encodeURIComponent(mobimsg)}%0A${encodeURIComponent(
+            url
+          )}`
+        );
+      }
+    });
   });

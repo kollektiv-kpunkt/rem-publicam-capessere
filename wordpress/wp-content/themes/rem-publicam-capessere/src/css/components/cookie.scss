@@ -1,0 +1,25 @@
+i.fas#cookie-reject::before {
+    content: "\f00d";
+    font-size: 1rem;
+}
+
+.glowCookies__banner {
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+}
+
+.glowCookies__banner .accept__btn__styles {
+    width: calc(80% - 0.25rem);
+}
+
+.glowCookies__banner .settings__btn__styles {
+    width: calc(20% - 0.25rem);
+}
+
+@media screen and (max-width: 454px) {
+    .glowCookies__banner .accept__btn__styles,
+    .glowCookies__banner .settings__btn__styles {
+        width: 100%;
+    }
+}

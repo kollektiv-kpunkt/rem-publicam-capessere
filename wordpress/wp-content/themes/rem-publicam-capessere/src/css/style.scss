@@ -5,7 +5,10 @@
 @import "components/style.scss";
 @import "components/containers/largecontainer.css";
 @import "components/containers/mediumcontainer.css";
+@import "components/containers/smallcontainer.css";
 @import "components/containers/columns.css";
+
+@import "templates/style.scss";
 
 html {
   overflow-x: hidden;

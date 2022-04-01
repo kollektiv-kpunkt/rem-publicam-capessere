@@ -1,0 +1,9 @@
+.SmallContainerWrapper {
+    display: flex;
+}
+
+.SmallContainerInner {
+    max-width: 680px;
+    width: calc(100% - 2rem);
+    margin: auto;
+}

@@ -20,7 +20,7 @@
                                     </div>
                                     <?php
                                     if ($_ENV["SINGLEPAGE"] != 1): ?>
-                                    <div class="ButtonWrapper"><a id="" type="submit"
+                                    <div class="ButtonWrapper"><a
                                             href="<?= block_field("positions-position-1-link") ?>"
                                             class="rpc-button rpc-button-neg rpc-button-line rpc-button-arrow">Weiterlesen</a>
                                     </div>
@@ -39,7 +39,7 @@
                                     </div>
                                     <?php
                                     if ($_ENV["SINGLEPAGE"] != 1): ?>
-                                    <div class="ButtonWrapper"><a id="" type="submit"
+                                    <div class="ButtonWrapper"><a
                                             href="<?= block_field("positions-position-2-link") ?>"
                                             class="rpc-button rpc-button-neg rpc-button-line rpc-button-arrow">Weiterlesen</a>
                                     </div>
@@ -58,7 +58,7 @@
                                     </div>
                                     <?php
                                     if ($_ENV["SINGLEPAGE"] != 1): ?>
-                                    <div class="ButtonWrapper"><a id="" type="submit"
+                                    <div class="ButtonWrapper"><a
                                             href="<?= block_field("positions-position-3-link") ?>"
                                             class="rpc-button rpc-button-neg rpc-button-line rpc-button-arrow">Weiterlesen</a>
                                     </div>

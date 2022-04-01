@@ -8,7 +8,7 @@
         <div id="heroine-testimonial-wrapper">
             <p id="heroine-testimonial"><?= block_field("heroine-testimonial") ?></p>
             <div id="heroine-buttons" class="flex">
-            <div class="ButtonWrapper"><a id="" type="submit" href="<?= block_field("heroine-button-1-link") ?>" class="rpc-button rpc-button-black rpc-button-arrow"><?= block_field("heroine-button-1-text") ?></a></div>
+            <div class="ButtonWrapper"><a href="<?= block_field("heroine-button-1-link") ?>" class="rpc-button rpc-button-black rpc-button-arrow"><?= block_field("heroine-button-1-text") ?></a></div>
             </div>
         </div>
         </div>

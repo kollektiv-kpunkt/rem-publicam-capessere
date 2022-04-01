@@ -14,30 +14,31 @@
   display: none;
 }
 
-#share-buttons .ButtonWrapper {
+.share-buttons .ButtonWrapper {
   width: calc(50% - 0.25rem);
 }
 
-#share-buttons .ButtonWrapper {
+.share-buttons .ButtonWrapper {
   width: calc(50% - 0.25rem);
 }
 
-#share-buttons .rpc-button {
-  width: 100%;
+.share-buttons a.rpc-button {
+    width: 100%;
+    color: white !important;
 }
 
-#share-buttons .rpc-button#whatsapp {
+.share-buttons .rpc-button[data-type="whatsapp"] {
   --backgroundcolor: #25d366;
 }
 
-#share-buttons .rpc-button#telegram {
+.share-buttons .rpc-button[data-type="telegram"] {
   --backgroundcolor: #0088cc;
 }
 
-#share-buttons .rpc-button#signal {
+.share-buttons .rpc-button[data-type="signal"] {
   --backgroundcolor: #3775e0;
 }
 
-#share-buttons .rpc-button#facebook {
+.share-buttons .rpc-button[data-type="facebook"] {
   --backgroundcolor: #4267b2;
 }

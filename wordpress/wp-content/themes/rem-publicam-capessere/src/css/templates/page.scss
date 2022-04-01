@@ -1,0 +1,105 @@
+.page-heroine-container {
+    margin-bottom: 3.5rem;
+}
+
+.page-heroine-container.has-thumbnail {
+    background-image: linear-gradient(180deg, var(--prim) 50%, white 50%);
+}
+
+.page-heroine-container.no-thumbnail {
+    background-color: var(--prim);
+}
+
+.page-heroine {
+    padding-top: 5rem;
+}
+
+@media screen and (max-width: 980px) {
+    .page-heroine {
+        padding-top: 6rem;
+    }
+}
+
+.page-heroine-thumbnail-container {
+    position: relative;
+    padding-bottom: calc(100% / 16 * 9);
+}
+
+.page-heroine-thumbnail-container img, .page-heroine-thumbnail-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-heroine-thumbnail-gradient {
+    background-image: linear-gradient(180deg, #00000000 50%, #000000 100%);
+    z-index: 5;
+    opacity: 0.5;
+    mix-blend-mode: darken;
+}
+
+#page-heroine-title {
+    line-height: 0.8;
+    color: white;
+    margin-bottom: 0;
+}
+
+.no-thumbnail .page-heroine #page-heroine-title {
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    text-align: center;
+}
+
+.has-thumbnail .page-heroine #page-heroine-title {
+    position: relative;
+    z-index: 10;
+    margin-top: -2.3em;
+    padding: 0.75em;
+}
+
+@media screen and (max-width: 780px) {
+    .has-thumbnail .page-heroine #page-heroine-title {
+        margin-top: -1.8em;
+        padding: 0.5em;
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .has-thumbnail .page-heroine #page-heroine-title {
+        margin-top: -1.6em;
+        padding: 0.4em;
+        font-size: 2rem;
+    }
+}
+
+/* Homepage Block Wrappers */
+body.page .CallToActionWrapper, body.page .PositionsWrapper {
+    width: 100vw;
+    margin-left: calc((100vw - 680px) / -2);
+}
+
+@media screen and (max-width: 712px) {
+    body.page .CallToActionWrapper,
+    body.page .PositionsWrapper {
+        margin-left: -1rem;
+    }
+}
+
+/* ul fix */
+body.page #main-content ul {
+    list-style-type: square;
+    list-style-position: inside;
+    list-style-image: none;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+body.page #main-content ul li {
+    margin-bottom: 0.25rem;
+    padding-left: 1.3rem;
+    text-indent: -1.3rem;
+}

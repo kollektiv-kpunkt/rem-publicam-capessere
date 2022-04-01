@@ -5,6 +5,10 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $_POST;
 }
 
+if (isset($_COOKIE["mtm_consent"])) {
+    $mtm->doTrackEvent("Form Signup", "Step 2", $data["uuid"]);
+}
+
 $mcstep = $mcconfig->step2;
 
 try {
@@ -14,8 +18,13 @@ try {
         "status" => "subscribed",
     ]);
 } catch (GuzzleHttp\Exception\ClientException $e) {
-  echo '<pre>' . var_export($e->getResponse()->getBody()->getContents()).'</pre>';
-  $errors[] = $e->getMessage();
+    $return = [
+      "sucess" => false,
+      "content" => $e->getResponse()->getBody()->getContents(),
+      "errors" => [$e->getMessage()]
+    ];
+    echo json_encode($return);
+    exit;
 }
 
 if ($response) {

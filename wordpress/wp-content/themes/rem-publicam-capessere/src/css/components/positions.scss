@@ -16,6 +16,10 @@
     padding-bottom: calc(100% / 3 * 4);
 }
 
+body.page #main-content .PositionWrapper a {
+    color: white;
+}
+
 .position-outer {
   position: absolute;
   top: 0;

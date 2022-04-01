@@ -35,4 +35,15 @@
   #intro-container {
     width: 100%;
   }
+
+    #intro-button-wrapper.flex {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    #intro-button-wrapper.flex .rpc-button {
+        width: 100%;
+        margin-left: 0;
+    }
 }

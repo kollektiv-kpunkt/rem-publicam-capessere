@@ -14,14 +14,24 @@
             </div>
             <div id="menu-container" class="my-auto">
                 <ul class="flex">
-                    <li><a href="#ueber-mich">Meine Vision</a></li>
-                    <li><a href="#positionen">Positionen</a></li>
-                    <li>
-                        <div class="ButtonWrapper"><a id="" type="submit" href="#mitmachen" class="rpc-button rpc-button-neg rpc-button-line" target="_self">Mitmachen</a></div>
-                    </li>
-                    <li>
-                        <div class="ButtonWrapper"><a id="" type="submit" href="/spenden" class="rpc-button rpc-button-neg rpc-button-line marginleft" target="_self">Spenden</a></div>
-                    </li>
+                    <?php
+                    $navitems = rpc_menu_items( 'rpc-main-nav', [] );
+                    foreach( $navitems as $item ) : ?>
+                        <li><a href="<?= $item->url ?>"<?php ($item->target == "_blank") ? print(" target='_blank'") : "" ?>><?= $item->title ?></a></li>
+                    <?php
+                    endforeach;
+                    ?>
+                    <?php
+                    $ctas = rpc_menu_items( 'rpc-main-cta', [] );
+                    $i=0;
+                    foreach( $ctas as $cta ) : ?>
+                        <li>
+                            <div class="ButtonWrapper"><a href="<?= $cta->url ?>"<?php ($cta->target == "_blank") ? print(" target='_blank'") : "" ?> class="rpc-button rpc-button-neg rpc-button-line<?php ($i>0) ? print(" marginleft") : "" ?>"><?= $cta->title ?></a></div>
+                        </li>
+                    <?php
+                    $i++;
+                    endforeach;
+                    ?>
                 </ul>
             </div>
             <div id="menu-mobile-container" class="my-auto">

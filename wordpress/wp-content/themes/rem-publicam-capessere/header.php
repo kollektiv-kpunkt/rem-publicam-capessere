@@ -9,8 +9,28 @@
     wp_head()
     ?>
 </head>
+<?php
+$bodyclasses = [];
 
-<body>
+global $template;
+array_push($bodyclasses, explode(".php", end(explode('/', $template)))[0]);
+
+if (is_front_page()) {
+    array_push($bodyclasses, 'home');
+}
+
+
+?>
+<body class="<?php
+        $i=0;
+        foreach($bodyclasses as $bodyclass):
+            echo($bodyclass);
+            if ($i < count($bodyclasses)-1) {
+                echo " ";
+            }
+            $i++;
+        endforeach;
+        ?>">
     <?php
     get_template_part("/templates/partials/navbar");
     ?>
