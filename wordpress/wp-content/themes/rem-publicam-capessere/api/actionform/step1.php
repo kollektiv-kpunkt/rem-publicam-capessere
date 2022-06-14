@@ -1,4 +1,5 @@
 <?php
+$afconfig = json_decode(file_get_contents(__DIR__ . "/../../" . $_ENV["AFconfig"]), true);
 if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $json;
 } else {
@@ -9,18 +10,21 @@ if (isset($_COOKIE["mtm_consent"])) {
     $mtm->doTrackEvent("Form Signup", "Step 1", $data["uuid"]);
 }
 
-$mcstep = $mcconfig->step1;
+$mcload = [
+    "email_address" => $data["email"],
+    'merge_fields' => [],
+    'tags' => [$afconfig["misc"]["formTag"]],
+    "status" => "subscribed",
+];
+
+foreach ($afconfig["steps"]["step1"]["fields"] as $name => $field) {
+    if (isset($field["mmerge"])) {
+        $mcload["merge_fields"][$field["mmerge"]] = $data[$name];
+    }
+}
 
 try {
-    $response = $client->lists->setListMember($mclistid, strtolower(md5($data["email"])), [
-        "email_address" => $data["email"],
-        'merge_fields' => [
-                "FNAME" => $data["firstname"],
-                $mcconfig->misc->plzmerge => $data["plz"]
-        ],
-        'tags' => assortTags($mcstep->tags, $data),
-        "status" => "subscribed",
-    ]);
+    $response = $client->lists->setListMember($mclistid, strtolower(md5($data["email"])), $mcload);
 } catch (GuzzleHttp\Exception\ClientException $e) {
     $return = [
       "sucess" => false,
@@ -54,6 +58,16 @@ try {
     exit;
 }
 
-if ($response) {
-    echo(json_encode(["success" => true]));
+if (!$response) {
+    echo(json_encode(["success" => false]));
+    exit;
 }
+
+$return = [
+    "success" => true,
+    "action" => "nextStep",
+    "content" => "",
+    "errors" => []
+];
+echo json_encode($return);
+exit;

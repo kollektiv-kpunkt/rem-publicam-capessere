@@ -15,7 +15,7 @@ endif;
 
 if (isset($_ENV["MATOMOID"]) && $_ENV["MATOMOID"] != ""):
     ?>
-<script>
+<script type="text/plain" data-cookiecategory="analytics">
   var _paq = window._paq = window._paq || [];
   _paq.push(['requireConsent']);
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */

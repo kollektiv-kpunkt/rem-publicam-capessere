@@ -7,10 +7,8 @@ $dotenv->safeLoad();
 /* RemPublicamCapessere */
 function rpc_scripts() {
     wp_enqueue_style( 'fa', get_template_directory_uri() . "/lib/font-awesome/css/font-awesome.min.css", [], "1.0.0" );
-    wp_enqueue_style( 'glowCookies', get_template_directory_uri() . "/lib/glowCookies/glowCookies.css", [], "1.0.0" );
     wp_enqueue_style( 'theme', get_template_directory_uri() . '/dist/theme.css', [], "1.0.0" );
     wp_enqueue_style( 'fonts', get_template_directory_uri() . '/dist/fonts/fonts.css', [], "1.0.0" );
-    wp_enqueue_script( 'glowCookies', get_template_directory_uri() . "/lib/glowCookies/glowCookies.js", array(), "1.0.0", true );
     wp_enqueue_style( 'bundle', get_template_directory_uri() . '/dist/style.css', [], "1.0.0" );
     wp_enqueue_script( 'bundle', get_template_directory_uri() . '/dist/app.js', array(), "1.0.0", true );
 }
@@ -44,3 +42,32 @@ function rpc_menu_items( $location, $args = [] ) {
     // Return menu post objects
     return $menu_items;
 }
+
+function rpc_htaccess( $rules ) {
+    $content = <<<EOD
+    \n
+    Options +FollowSymLinks -MultiViews
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^api/?$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]
+    RewriteRule ^api/(.+)$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]\n\n
+    EOD;
+    return $content . $rules;
+}
+add_filter('mod_rewrite_rules', 'rpc_htaccess');
+
+function rpc_enable_flush_rules() {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+}
+add_action( "admin_init", 'rpc_enable_flush_rules' );
+
+/* RPC Shortcodes */
+
+function rpc_cookie_shortcode($atts, $content = null) {
+    ob_start();
+    echo('<a><button data-cc="c-settings" class="underline">' . $content . '</button></a>');
+    return ob_get_clean();
+}
+
+add_shortcode('rpc-cookie-settings', 'rpc_cookie_shortcode');
