@@ -17,8 +17,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     $longtitle = true;
                 endif;
                 ?>
-                ?>
-                <h1 class="text-5xl" id="page-heroine-title<?= ($longtitle) ? print(" page-heroine-longtitle") : ""?>"><?php the_title(); ?></h1>
+                <h1 class="text-5xl" id="page-heroine-title<?= (isset($longtitle)) ? print(" page-heroine-longtitle") : ""?>"><?php the_title(); ?></h1>
             </div>
         </div>
         <div class="page-content-container">

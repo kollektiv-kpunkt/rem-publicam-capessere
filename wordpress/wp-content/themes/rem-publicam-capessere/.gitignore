@@ -1,5 +1,7 @@
 # rem publicam capessere
 config/af.json
+/lib/acf/*
+!/lib/acf/acf-json
 
 
 # NPM

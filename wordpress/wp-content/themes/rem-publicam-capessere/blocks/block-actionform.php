@@ -28,17 +28,17 @@ $formid = rand(1, 99999);
         if ($step["type"] == "form") :
             foreach ($step["fields"] as $name => $field) :
                 ?>
-                <div class="input-wrapper <?= $field["type"] ?><?= ($field["fullwidth"]) ? " fullwidth" : "" ?>">
+                <div class="input-wrapper <?= $field["type"] ?><?= (isset($field["fullwidth"])) ? " fullwidth" : "" ?>">
                     <?php
                     if ($field["type"] == "checkbox") :
                     ?>
-                    <input type="checkbox" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>" class="<?= $name ?>" hidden<?= ($field["checked"]) ? " checked" : "" ?>>
+                    <input type="checkbox" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>" class="<?= $name ?>" hidden<?= (isset($field["checked"])) ? " checked" : "" ?>>
                     <label for="<?= $name ?>-<?=$formid?>" class="block leading-tight"><?= $field["label"] ?></label>
                     <?php
                     else:
                     ?>
                     <label for="<?= $name ?>" class="text-xl"><?= $field["label"] ?></label>
-                    <input type="text" name="<?= $name ?>" id="<?= $name ?>"<?= ($field["required"]) ? " required" : "" ?><?= ($field["value"]) ?  " value=" . $field["value"] : "" ?>>
+                    <input type="text" name="<?= $name ?>" id="<?= $name ?>"<?= (isset($field["required"])) ? " required" : "" ?><?= (isset($field["value"])) ?  " value=" . $field["value"] : "" ?>>
                     <?php
                     endif;
                     ?>

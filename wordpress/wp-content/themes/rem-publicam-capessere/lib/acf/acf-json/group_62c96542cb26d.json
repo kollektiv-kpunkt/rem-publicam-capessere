@@ -1,0 +1,109 @@
+{
+    "key": "group_62c96542cb26d",
+    "title": "Block: Supporters",
+    "fields": [
+        {
+            "key": "field_62c9655e34503",
+            "label": "Type",
+            "name": "type",
+            "type": "checkbox",
+            "instructions": "Select which elements to display here.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "quotes": "Testimonial slider",
+                "list": "Supporters without a quote as a list",
+                "form": "Sign up form"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_62c965ac34504",
+            "label": "Information Email",
+            "name": "info_email",
+            "type": "email",
+            "instructions": "Which E-Mail address should be notified about subscriptions?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c9655e34503",
+                        "operator": "==",
+                        "value": "form"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_62c9660a34505",
+            "label": "Default status",
+            "name": "default_status",
+            "type": "checkbox",
+            "instructions": "Is the testimonial active or inactive by default?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c9655e34503",
+                        "operator": "==",
+                        "value": "form"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "active": "Testimonial active by default"
+            },
+            "allow_custom": 0,
+            "default_value": [
+                "active"
+            ],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/supporters"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1657366278
+}

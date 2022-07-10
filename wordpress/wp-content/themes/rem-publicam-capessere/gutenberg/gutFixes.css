@@ -1,0 +1,10 @@
+.scrollAnimation {
+    opacity: unset !important;
+    visibility: unset !important;
+    transform: unset !important;
+}
+
+.rpc-gallery-inner {
+    max-height: 50vh;
+    overflow: scroll;
+}
