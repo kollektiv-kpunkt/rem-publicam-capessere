@@ -16,18 +16,26 @@
   display: block;
   margin-bottom: 0.25rem;
   font-weight: bold;
-  color: white;
+  color: var(--form-color);
 }
 
-.input-wrapper input {
+.input-wrapper input, textarea {
   width: 100%;
   box-sizing: border-box;
   border: none;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid var(--form-color);
   background-color: transparent;
   padding: 0.5em 0;
   outline: none;
-  color: white;
+  color: var(--form-color);
+}
+
+form {
+    --form-color: white;
+}
+
+form.rpc-form-neg {
+    --form-color: #000;
 }
 
 .input-wrapper.checkbox {

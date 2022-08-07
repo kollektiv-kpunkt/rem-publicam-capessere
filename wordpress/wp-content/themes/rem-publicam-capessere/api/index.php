@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../../../wp-load.php';
 require '../vendor/autoload.php';
 use Pecee\SimpleRouter\SimpleRouter as Router;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
@@ -60,6 +61,27 @@ Router::post('/api/v1/actionform/{step}', function($step) {
     $mtm->setTokenAuth($mtmtoken);
 
     include(__DIR__ . "/actionform/{$step}.php");
+    exit;
+});
+
+Router::post('/api/v1/komitee/step1', function() {
+    // $mcapi = $_ENV["MCAPI"];
+    // $mclistid = $_ENV["MCLISTID"];
+    // $mcserver = $_ENV["MCSERVERPREFIX"];
+    // $client = new \MailchimpMarketing\ApiClient();
+    // $client->setConfig([
+    //     'apiKey' => $mcapi,
+    //     'server' => $mcserver
+    // ]);
+
+    // $mtmpageid = $_ENV["MATOMOID"];
+    // $mtmurl = $_ENV["MATOMOURL"];
+    // $mtmtoken = $_ENV["MATOMOTOKEN"];
+    // $mtm = new MatomoTracker((int)$mtmpageid, $mtmurl);
+
+    // $mtm->setTokenAuth($mtmtoken);
+
+    include(__DIR__ . "/komitee/step1.php");
     exit;
 });
 
