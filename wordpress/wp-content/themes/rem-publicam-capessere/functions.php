@@ -153,6 +153,16 @@ function rpc_blocktypes() {
             'icon'              => '',
             'keywords'          => array("supporters", "campaign", "join"),
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'topics',
+            'title'             => __('Topics'),
+            'description'       => __('Topics for homepage'),
+            'render_template'   => 'template-parts/blocks/topics.php',
+            'category'          => 'rpc',
+            'icon'              => '',
+            'keywords'          => array("topics", "homepage"),
+        ));
     }
 }
 

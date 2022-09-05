@@ -64,6 +64,48 @@ Router::post('/api/v1/actionform/{step}', function($step) {
     exit;
 });
 
+Router::get('/api/v1/actionform/playground', function() {
+    $mcapi = $_ENV["MCAPI"];
+    $mclistid = $_ENV["MCLISTID"];
+    $mcserver = $_ENV["MCSERVERPREFIX"];
+    $client = new \MailchimpMarketing\ApiClient();
+    $client->setConfig([
+        'apiKey' => $mcapi,
+        'server' => $mcserver
+    ]);
+
+    $mtmpageid = $_ENV["MATOMOID"];
+    $mtmurl = $_ENV["MATOMOURL"];
+    $mtmtoken = $_ENV["MATOMOTOKEN"];
+    $mtm = new MatomoTracker((int)$mtmpageid, $mtmurl);
+
+    $mtm->setTokenAuth($mtmtoken);
+
+    include(__DIR__ . "/actionform/playground.php");
+    exit;
+});
+
+Router::post('/api/v1/af-v2', function() {
+    $mcapi = $_ENV["MCAPI"];
+    $mclistid = $_ENV["MCLISTID"];
+    $mcserver = $_ENV["MCSERVERPREFIX"];
+    $client = new \MailchimpMarketing\ApiClient();
+    $client->setConfig([
+        'apiKey' => $mcapi,
+        'server' => $mcserver
+    ]);
+
+    $mtmpageid = $_ENV["MATOMOID"];
+    $mtmurl = $_ENV["MATOMOURL"];
+    $mtmtoken = $_ENV["MATOMOTOKEN"];
+    $mtm = new MatomoTracker((int)$mtmpageid, $mtmurl);
+
+    $mtm->setTokenAuth($mtmtoken);
+
+    include(__DIR__ . "/actionform/sendFormdata.php");
+    exit;
+});
+
 Router::post('/api/v1/komitee/step1', function() {
     // $mcapi = $_ENV["MCAPI"];
     // $mclistid = $_ENV["MCLISTID"];

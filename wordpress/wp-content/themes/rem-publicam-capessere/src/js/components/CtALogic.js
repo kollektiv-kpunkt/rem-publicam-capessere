@@ -26,6 +26,10 @@ function legacyFormLogic(form) {
       formData.email = this.querySelector("#email").value;
       formData.optin = this.querySelector(".optin").checked;
     } else if (step === 2) {
+      formData.firstname = this.querySelector("#firstname").value;
+      formData.plz = this.querySelector("#plz").value;
+      formData.email = this.querySelector("#email").value;
+      formData.optin = this.querySelector(".optin").checked;
       formData.support = this.querySelector(".support").checked;
       formData.donate = this.querySelector(".donate").checked;
     }
