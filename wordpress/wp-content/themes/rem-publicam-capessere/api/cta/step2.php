@@ -12,7 +12,7 @@ if (isset($_COOKIE["mtm_consent"])) {
 $mcstep = $mcconfig->step2;
 
 try {
-    $response = $client->lists->setListMember($mclistid, strtolower(md5($data["email"])), [
+    $response = $client->lists->setListMember($mclistid, md5(strtolower($data["email"])), [
         "email_address" => $data["email"],
         'tags' => assortTags($mcstep->tags, $data),
         "status" => "subscribed",

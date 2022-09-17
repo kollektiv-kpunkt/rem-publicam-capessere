@@ -12,12 +12,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <div class="rpc-image-blind"></div>
                     <div class="page-heroine-thumbnail-gradient"></div>
                 </div>
-                <?php endif;
-                if (strlen(get_the_title()) > 20):
-                    $longtitle = true;
-                endif;
-                ?>
-                <h1 class="text-5xl" id="page-heroine-title<?= (isset($longtitle)) ? print(" page-heroine-longtitle") : ""?>"><?php the_title(); ?></h1>
+                <?php endif; ?>
+                <h1 class="text-5xl" id="page-heroine-title"><?php the_title(); ?></h1>
             </div>
         </div>
         <div class="page-content-container">

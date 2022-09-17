@@ -33,17 +33,3 @@
     width: calc(50% - 0.5rem);
   }
 }
-
-
-/* SoMe Footer */
-
-a.footer-some-icon span.footer-icon::before {
-    font-weight: bold;
-    color: white;
-    display: inline;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f09a";
-    letter-spacing: 10px;
-    cursor: pointer;
-}

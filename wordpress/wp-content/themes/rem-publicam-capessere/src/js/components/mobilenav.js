@@ -17,9 +17,3 @@ document
   .addEventListener("click", function (e) {
     toggleMobileNav(e.target);
   });
-
-document.querySelectorAll("#mobile-nav-inner li a").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    toggleMobileNav(e.target);
-  });
-});

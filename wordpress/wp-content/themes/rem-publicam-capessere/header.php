@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= get_language_attributes() ?>">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">

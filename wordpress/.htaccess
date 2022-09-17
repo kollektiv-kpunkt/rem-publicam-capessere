@@ -1,13 +1,10 @@
-Options +FollowSymLinks -MultiViews
-RewriteEngine On
-RewriteBase /
-RewriteRule ^api/?$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]
-RewriteRule ^api/(.+)$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]
+#This Apache config file was created by Duplicator Installer on 2022-09-17 15:50:00.
+#The original can be found in archived file with the name .htaccess__[HASH]
 
 # BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
+# Die Anweisungen (Zeilen) zwischen „BEGIN WordPress“ und „END WordPress“ sind
+# dynamisch generiert und sollten nur über WordPress-Filter geändert werden.
+# Alle Änderungen an den Anweisungen zwischen diesen Markierungen werden überschrieben.
 
 
 Options +FollowSymLinks -MultiViews
