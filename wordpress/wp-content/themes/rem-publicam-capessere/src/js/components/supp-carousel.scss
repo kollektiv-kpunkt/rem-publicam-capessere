@@ -1,0 +1,83 @@
+.rpc-supp-testimonial {
+
+    opacity: 0.1;
+    transition: 0.15s ease-in-out opacity;
+
+    &__text {
+        opacity: 0;
+        height: 0;
+        width: calc(100% + 6rem);
+
+        .rpc-supp-testimonial__content {
+            font-size: 1.25rem;
+            font-style: italic;
+        }
+    }
+    .rpc-supp-testimonial-img {
+        padding-bottom: 100%;
+        position: relative;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    img {
+        z-index: 1;
+        filter: grayscale(1);
+        transition: 0.15s ease-in-out filter, 0.15s ease-in-out transform;
+    }
+
+    &.is-active {
+        opacity: 1;
+
+        img {
+            transform: scale(1.25);
+            transform-origin: center top;
+            z-index: 100;
+            filter: grayscale(0);
+
+            @media (max-width: 520px) {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &.is-active &__text {
+            height: auto;
+            margin-top: 4rem;
+            opacity: 1;
+            position: relative;
+            z-index: 100;
+            margin-left: -3rem;
+
+            @media (max-width: 1080px) {
+                margin-top: 6rem;
+            }
+
+            @media (max-width: 520px) {
+                margin-top: 1rem;
+                margin-left: 0;
+                width: 100%;
+            }
+    }
+}
+
+.splide__pagination {
+    bottom: -3rem;
+
+    .splide__pagination__page {
+        &.is-active {
+            background-color: var(--prim);
+            opacity: 0.75;
+        }
+    }
+}
+
+.rpc-supp-quotes {
+    margin-bottom: 5rem;
+}

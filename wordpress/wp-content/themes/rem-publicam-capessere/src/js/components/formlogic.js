@@ -1,3 +1,5 @@
+import "./crop-komitee-photo.js";
+
 if (document.querySelector(".rpc-api-form")) {
   document.querySelectorAll(".rpc-api-form").forEach(function (form) {
     form.addEventListener("submit", function (event) {
@@ -20,18 +22,13 @@ function formlogic(form) {
       body: JSON.stringify(data),
     });
     const content = await rawResponse.json();
+    localStorage.setItem(url, JSON.stringify(content.formData));
     console.log(content);
-    return;
-    if (content.success) {
-      if (nextStep === 3 && formData.donate == true) {
-        window.location.href = "/spenden";
-      } else {
-        this.querySelector(
-          `.CtAStep[data-step-id='form-step${step}']`
-        ).setAttribute("hidden", true);
-        this.querySelector(
-          `.CtAStep[data-step-id='form-step${nextStep}']`
-        ).removeAttribute("hidden");
+    if (content.status == "success") {
+      switch (content.action) {
+        case "js":
+          eval(content.js);
+          break;
       }
     } else {
       console.log(content);

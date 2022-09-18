@@ -166,51 +166,50 @@ function rpc_blocktypes() {
     }
 }
 
-
 // CPT
-function rpc_register_cpt() {
+function rpc_register_my_cpts() {
 
 	/**
 	 * Post Type: Supporters.
 	 */
 
 	$labels = [
-		"name" => __( "Supporters", "rem-publicam-capessere" ),
-		"singular_name" => __( "Supporter", "rem-publicam-capessere" ),
-		"menu_name" => __( "Supporters", "rem-publicam-capessere" ),
-		"all_items" => __( "All Supporters", "rem-publicam-capessere" ),
-		"add_new" => __( "Add new", "rem-publicam-capessere" ),
-		"add_new_item" => __( "Add new Supporter", "rem-publicam-capessere" ),
-		"edit_item" => __( "Edit Supporter", "rem-publicam-capessere" ),
-		"new_item" => __( "New Supporter", "rem-publicam-capessere" ),
-		"view_item" => __( "View Supporter", "rem-publicam-capessere" ),
-		"view_items" => __( "View Supporters", "rem-publicam-capessere" ),
-		"search_items" => __( "Search Supporters", "rem-publicam-capessere" ),
-		"not_found" => __( "No Supporters found", "rem-publicam-capessere" ),
-		"not_found_in_trash" => __( "No Supporters found in trash", "rem-publicam-capessere" ),
-		"parent" => __( "Parent Supporter:", "rem-publicam-capessere" ),
-		"featured_image" => __( "Featured image for this Supporter", "rem-publicam-capessere" ),
-		"set_featured_image" => __( "Set featured image for this Supporter", "rem-publicam-capessere" ),
-		"remove_featured_image" => __( "Remove featured image for this Supporter", "rem-publicam-capessere" ),
-		"use_featured_image" => __( "Use as featured image for this Supporter", "rem-publicam-capessere" ),
-		"archives" => __( "Supporter archives", "rem-publicam-capessere" ),
-		"insert_into_item" => __( "Insert into Supporter", "rem-publicam-capessere" ),
-		"uploaded_to_this_item" => __( "Upload to this Supporter", "rem-publicam-capessere" ),
-		"filter_items_list" => __( "Filter Supporters list", "rem-publicam-capessere" ),
-		"items_list_navigation" => __( "Supporters list navigation", "rem-publicam-capessere" ),
-		"items_list" => __( "Supporters list", "rem-publicam-capessere" ),
-		"attributes" => __( "Supporters attributes", "rem-publicam-capessere" ),
-		"name_admin_bar" => __( "Supporter", "rem-publicam-capessere" ),
-		"item_published" => __( "Supporter published", "rem-publicam-capessere" ),
-		"item_published_privately" => __( "Supporter published privately.", "rem-publicam-capessere" ),
-		"item_reverted_to_draft" => __( "Supporter reverted to draft.", "rem-publicam-capessere" ),
-		"item_scheduled" => __( "Supporter scheduled", "rem-publicam-capessere" ),
-		"item_updated" => __( "Supporter updated.", "rem-publicam-capessere" ),
-		"parent_item_colon" => __( "Parent Supporter:", "rem-publicam-capessere" ),
+		"name" => esc_html__( "Supporters", "rem-publicam-capessere" ),
+		"singular_name" => esc_html__( "Supporter", "rem-publicam-capessere" ),
+		"menu_name" => esc_html__( "Supporters", "rem-publicam-capessere" ),
+		"all_items" => esc_html__( "All Supporters", "rem-publicam-capessere" ),
+		"add_new" => esc_html__( "Add new", "rem-publicam-capessere" ),
+		"add_new_item" => esc_html__( "Add new Supporter", "rem-publicam-capessere" ),
+		"edit_item" => esc_html__( "Edit Supporter", "rem-publicam-capessere" ),
+		"new_item" => esc_html__( "New Supporter", "rem-publicam-capessere" ),
+		"view_item" => esc_html__( "View Supporter", "rem-publicam-capessere" ),
+		"view_items" => esc_html__( "View Supporters", "rem-publicam-capessere" ),
+		"search_items" => esc_html__( "Search Supporters", "rem-publicam-capessere" ),
+		"not_found" => esc_html__( "No Supporters found", "rem-publicam-capessere" ),
+		"not_found_in_trash" => esc_html__( "No Supporters found in trash", "rem-publicam-capessere" ),
+		"parent" => esc_html__( "Parent Supporter:", "rem-publicam-capessere" ),
+		"featured_image" => esc_html__( "Featured image for this Supporter", "rem-publicam-capessere" ),
+		"set_featured_image" => esc_html__( "Set featured image for this Supporter", "rem-publicam-capessere" ),
+		"remove_featured_image" => esc_html__( "Remove featured image for this Supporter", "rem-publicam-capessere" ),
+		"use_featured_image" => esc_html__( "Use as featured image for this Supporter", "rem-publicam-capessere" ),
+		"archives" => esc_html__( "Supporter archives", "rem-publicam-capessere" ),
+		"insert_into_item" => esc_html__( "Insert into Supporter", "rem-publicam-capessere" ),
+		"uploaded_to_this_item" => esc_html__( "Upload to this Supporter", "rem-publicam-capessere" ),
+		"filter_items_list" => esc_html__( "Filter Supporters list", "rem-publicam-capessere" ),
+		"items_list_navigation" => esc_html__( "Supporters list navigation", "rem-publicam-capessere" ),
+		"items_list" => esc_html__( "Supporters list", "rem-publicam-capessere" ),
+		"attributes" => esc_html__( "Supporters attributes", "rem-publicam-capessere" ),
+		"name_admin_bar" => esc_html__( "Supporter", "rem-publicam-capessere" ),
+		"item_published" => esc_html__( "Supporter published", "rem-publicam-capessere" ),
+		"item_published_privately" => esc_html__( "Supporter published privately.", "rem-publicam-capessere" ),
+		"item_reverted_to_draft" => esc_html__( "Supporter reverted to draft.", "rem-publicam-capessere" ),
+		"item_scheduled" => esc_html__( "Supporter scheduled", "rem-publicam-capessere" ),
+		"item_updated" => esc_html__( "Supporter updated.", "rem-publicam-capessere" ),
+		"parent_item_colon" => esc_html__( "Parent Supporter:", "rem-publicam-capessere" ),
 	];
 
 	$args = [
-		"label" => __( "Supporters", "rem-publicam-capessere" ),
+		"label" => esc_html__( "Supporters", "rem-publicam-capessere" ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
@@ -231,12 +230,13 @@ function rpc_register_cpt() {
 		"can_export" => false,
 		"rewrite" => [ "slug" => "supporter", "with_front" => true ],
 		"query_var" => true,
-		"menu_icon" => "dashicons-thumbs-up",
+		"menu_icon" => "dashicons-admin-users",
 		"supports" => [ "title", "editor", "thumbnail" ],
+		"taxonomies" => [ "category" ],
 		"show_in_graphql" => false,
 	];
 
 	register_post_type( "supporter", $args );
 }
 
-add_action( 'init', 'rpc_register_cpt' );
+add_action( 'init', 'rpc_register_my_cpts' );

@@ -1,7 +1,3 @@
-<div style="height: 300px; background: yellow; display: flex; justify-content: center; align-items: center; margin-top: 3rem; margin-bottom: 3rem">
-    <p><b>This is a placeholder</b></p>
-</div>
-
 <?php
 $type = get_field("type");
 

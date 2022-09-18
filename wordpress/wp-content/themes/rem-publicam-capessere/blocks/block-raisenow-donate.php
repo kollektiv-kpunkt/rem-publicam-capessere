@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET["donate-text"])) :
+?>
+    <p class="mt-8"><?= $_GET["donate-text"] ?></p>
+<?php
+endif;
+?>
 <div id="donation-widget" class="mt-8"></div>
 <script src="<?= $_ENV["RNWSRC"] ?>"></script>
 <script>

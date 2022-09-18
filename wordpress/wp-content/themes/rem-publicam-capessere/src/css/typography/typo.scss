@@ -2,6 +2,7 @@ html {
   font-family: "NimbusSanNov", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
 }
 
 h1,
@@ -24,4 +25,26 @@ p + p {
 
 body.page #main-content a {
     color: var(--prim);
+}
+
+h1 {
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-size: 3.75rem;
+    color: var(--accent);
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5,
+h6 {
+    font-size: 1.5rem;
 }
