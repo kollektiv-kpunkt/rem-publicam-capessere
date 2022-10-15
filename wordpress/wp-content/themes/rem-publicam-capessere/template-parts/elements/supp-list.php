@@ -15,7 +15,7 @@ $supporters = $supporters->get_posts();
     $i = 1;
     foreach($supporters as $supporter) :
     ?>
-    <b><?php echo $supporter->post_title ?>,</b> <?= $supporter->position ?>, <?= $supporter->plz ?> <?= $supporter->city ?><?= ($i < count($supporters)) ? ";" : "" ?>
+    <b><?php echo $supporter->post_title ?>,</b><?= ($supporter->position !== "" && $supporter->position !== " ") ? " " . $supporter->position . ", ": "" ?> <?= $supporter->plz ?> <?= $supporter->city ?><?= ($i < count($supporters)) ? ";" : "" ?>
     <?php
     $i++;
     endforeach;

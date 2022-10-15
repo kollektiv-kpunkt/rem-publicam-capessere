@@ -12,8 +12,11 @@
 <?php
 $bodyclasses = [];
 
+
 global $template;
-array_push($bodyclasses, explode(".php", end(explode('/', $template)))[0]);
+$template_array = explode("/", explode(".php", $template)[0]);
+$template_file = end($template_array);
+array_push($bodyclasses, $template_file);
 
 if (is_front_page()) {
     array_push($bodyclasses, 'home');

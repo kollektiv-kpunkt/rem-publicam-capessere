@@ -37,14 +37,34 @@ $formid = uniqid();
                     <?php
                     if ($field["type"] == "checkbox") :
                     ?>
-                    <input type="checkbox" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>" class="<?= $name ?>" hidden<?= (isset($field["checked"])) ? " checked" : "" ?><?= (isset($field["mmerge"])) ? " data-mmerge='{$field["mmerge"]}'" : "" ?><?= (isset($field["mtag"])) ? " data-mtag='{$field["mtag"]}'" : "" ?><?= (isset($field["is-optin"])) ? " data-is-optin='true'" : "" ?>>
+                    <input type="checkbox" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>" class="<?= $name ?>" hidden<?= (isset($field["checked"])) ? " checked" : "" ?><?= (isset($field["mmerge"])) ? " data-mmerge='{$field["mmerge"]}'" : "" ?><?= (isset($field["mtag"])) ? " data-mtag='{$field["mtag"]}'" : "" ?><?= (isset($field["is-optin"])) ? " data-is-optin='true'" : "" ?><?= (isset($field["base_config"])) ? " data-base-config='" . json_encode($field["base_config"]) . "'" : "" ?>>
                     <label for="<?= $name ?>-<?=$formid?>" class="block leading-tight"><?= $field["label"] ?></label>
+                    <?php
+                    elseif ($field["type"] == "textarea") :
+                    ?>
+                    <label for="<?= $name ?>-<?=$formid?>" class="text-xl"><?= $field["label"] ?></label>
+                    <textarea name="<?= $name ?>" class="rpc-textarea-autosize" id="<?= $name ?>-<?=$formid?>"<?= (isset($field["class"])) ? " class='{$field["class"]}'" : "" ?><?= (isset($field["required"])) ? " required" : "" ?><?= (isset($field["mmerge"])) ? " data-mmerge='{$field["mmerge"]}'" : "" ?><?= (isset($field["mtag"])) ? " data-mtag='{$field["mtag"]}'" : "" ?><?= (isset($field["is-address"])) ? " data-is-address='true'": "" ?><?= (isset($field["is-address"])) ? " data-address-field='{$field["address-field"]}'": "" ?><?= (isset($field["prefill"])) ? " data-prefill='{$field["prefill"]["type"]}::{$field["prefill"]["value"]}'": "" ?><?= (isset($field["base_config"])) ? " data-base-config='" . json_encode($field["base_config"]) . "'" : "" ?>></textarea>
                     <?php
                     else:
                     ?>
                     <label for="<?= $name ?>-<?=$formid?>" class="text-xl"><?= $field["label"] ?></label>
-                    <input type="<?= $field["type"]?>" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>"<?= (isset($field["required"])) ? " required" : "" ?><?= (isset($field["mmerge"])) ? " data-mmerge='{$field["mmerge"]}'" : "" ?><?= (isset($field["mtag"])) ? " data-mtag='{$field["mtag"]}'" : "" ?><?= (isset($field["is-address"])) ? " data-is-address='true'": "" ?><?= (isset($field["is-address"])) ? " data-address-field='{$field["address-field"]}'": "" ?><?= (isset($field["prefill"])) ? " data-prefill='{$field["prefill"]["type"]}::{$field["prefill"]["value"]}'": "" ?>>
+                    <input type="<?= $field["type"]?>" name="<?= $name ?>" id="<?= $name ?>-<?=$formid?>"<?= (isset($field["class"])) ? " class='{$field["class"]}'" : "" ?><?= (isset($field["required"])) ? " required" : "" ?><?= (isset($field["mmerge"])) ? " data-mmerge='{$field["mmerge"]}'" : "" ?><?= (isset($field["mtag"])) ? " data-mtag='{$field["mtag"]}'" : "" ?><?= (isset($field["is-address"])) ? " data-is-address='true'": "" ?><?= (isset($field["is-address"])) ? " data-address-field='{$field["address-field"]}'": "" ?><?= (isset($field["prefill"])) ? " data-prefill='{$field["prefill"]["type"]}::{$field["prefill"]["value"]}'": "" ?><?= (isset($field["base_config"])) ? " data-base-config='" . json_encode($field["base_config"]) . "'" : "" ?><?= (isset($field["img_crop"])) ? " data-img-crop='{$field["img_crop"]}'" : "" ?>>
                     <?php
+                    endif;
+                    if ($field["type"] == "file" && isset($field["img_crop"]) && $field["img_crop"] == "modal") :
+                        ?>
+                        <div class="rpc-img-upload-modal-outer" data-element-type="modal" hidden>
+                            <div class="rpc-img-upload-modal-inner p-6 bg-white">
+                                <div class="rpc-img-upload-modal-img-wrapper">
+                                    <img src="" alt="" class="rpc-img-upload-modal-img">
+                                </div>
+                                <div class="flex flex-wrap gap-x-4 mt-4 justify-end">
+                                    <button type="button" class="rpc-button rpc-button-line rpc-img-upload-modal-cancel">Abbrechen</button>
+                                    <button type="button" class="rpc-button rpc-button-next rpc-img-upload-modal-crop">Zuschneiden</button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
                     endif;
                     ?>
                 </div>
@@ -52,7 +72,7 @@ $formid = uniqid();
             endforeach;
             ?>
             <div class="input-wrapper fullwidth">
-                <button type="submit" class="rpc-button rpc-button-arrow rpc-button-neg rpc-button-line ml-auto" data-next="<?= $step["next"] ?>"><?= $step["submit"] ?></button>
+                <button type="submit" class="rpc-button rpc-button-arrow rpc-button-neg rpc-button-line ml-auto" data-next='<?= json_encode($step["next"]) ?>'><?= $step["submit"] ?></button>
             </div>
             </form>
         <?php
@@ -101,7 +121,6 @@ $formid = uniqid();
     $i++;
     endforeach;
     ?>
-    </div>
 </div>
 <div id="currentFormdata" class="p-4 bg-black text-white mt-16" hidden>
     Sent Formdata:

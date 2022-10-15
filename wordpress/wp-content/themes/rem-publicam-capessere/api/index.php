@@ -6,6 +6,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
 // header("Content-Type: application/json");
 
+
 function assortTags($tags, $data) {
     $result = [];
     foreach($tags as $tag) {
@@ -113,6 +114,16 @@ Router::post('/api/v1/komitee/step1', function() {
 
 Router::post('/api/v1/komitee/step2', function() {
     include(__DIR__ . "/komitee/step2.php");
+    exit;
+});
+
+Router::get('/api/v1/share/{channel}/', function($channel) {
+    $mtmpageid = $_ENV["MATOMOID"];
+    $mtmurl = $_ENV["MATOMOURL"];
+    $mtmtoken = $_ENV["MATOMOTOKEN"];
+    $mtm = new MatomoTracker((int)$mtmpageid, $mtmurl);
+    $mtm->setTokenAuth($mtmtoken);
+    include(__DIR__ . "/share/index.php");
     exit;
 });
 
