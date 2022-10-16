@@ -3,7 +3,7 @@ import "@splidejs/splide/css";
 import "./supp-carousel.scss";
 
 if (document.querySelector(".splide")) {
-  new Splide(".splide", {
+  const splideController = new Splide(".splide", {
     type: "loop",
     perPage: 3,
     perMove: 1,
@@ -12,14 +12,26 @@ if (document.querySelector(".splide")) {
     autoplay: true,
     interval: 8000,
     pauseOnHover: true,
+    drag: false,
     focus: "center",
     breakpoints: {
       520: {
         perPage: 1,
       },
-      1080: {
+      680: {
         perPage: 2,
       },
     },
   }).mount();
+
+  document.querySelectorAll(".rpc-supp-testimonial-img").forEach((img) => {
+    img.addEventListener("click", () => {
+      var splide = img.closest(".rpc-supp-testimonial ");
+      if (splide.classList.contains("is-next")) {
+        splideController.go(">");
+      } else if (splide.classList.contains("is-prev")) {
+        splideController.go("<");
+      }
+    });
+  });
 }

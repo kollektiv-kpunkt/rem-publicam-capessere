@@ -127,15 +127,36 @@ if (isset($data["base-config"]["komitee_name"])) {
         $json["lname"] = $data["lname"]["value"];
         $json["city"] = $data["city"]["value"];
     }
+
+    if ($data["base-config"]["komitee_quote"] == true) {
+        $json["quote"] = $data["quote"]["value"];
+        $json["position"] = $data["position"]["value"];
+    }
     $client = new \GuzzleHttp\Client();
-    $promise = $client->requestAsync('POST', "{$_ENV["BASEURL"]}/api/v1/komitee/step1", [
+    $response = $client->request("POST", "{$_ENV["BASEURL"]}/api/v1/komitee/step1", [
         'headers' => [
             'Content-Type' => 'application/json',
         ],
         'json' => $json,
     ]);
 
-    $response = $promise->wait();
+    $json = [];
+
+    $response = json_decode($response->getBody(),true);
+
+    if ($data["base-config"]["komitee_img"] == true) {
+        $json = [
+            "image" => $data["komitee_img"]["value"],
+            "uuid" => $response["formData"]["uuid"],
+            "post_id" => $response["formData"]["post_id"]
+        ];
+        $response = $client->request("POST", "{$_ENV["BASEURL"]}/api/v1/komitee/step2", [
+        'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => $json,
+        ]);
+    }
 }
 
 $return = [

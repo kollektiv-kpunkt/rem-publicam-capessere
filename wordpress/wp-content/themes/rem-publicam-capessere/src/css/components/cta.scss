@@ -58,10 +58,42 @@
   position: absolute;
   bottom: 2.5rem;
   right: 2rem;
-  width: calc(50% - 1rem);
+  width: 75%;
   z-index: 7;
   color: white;
   text-align: end;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    min-width: 220px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.rpc-actionform-step[data-step-type="thanksInterface"] {
+    .ButtonWrapper {
+        width: calc(100% / 2 - 1rem);
+
+        .rpc-button {
+            width: 100%;
+        }
+    }
+
+    .share-buttons {
+        .rpc-button[data-type="whatsapp"] {
+            --backgroundcolor: #25D366;
+            --borderColor: #25D366;
+        }
+        .rpc-button[data-type="telegram"] {
+            --backgroundcolor: #0088cc;
+            --borderColor: #0088cc;
+        }
+        .rpc-button[data-type="facebook"] {
+            --backgroundcolor: #3b5998;
+            --borderColor: #3b5998;
+        }
+    }
 }
 
 /* Animations */
@@ -120,11 +152,11 @@
     margin: auto;
   }
 
-  #mitmachen .cols-2.columns {
+  .CallToActionWrapper .cols-2.columns {
     display: block;
   }
 
-  #mitmachen .cols-2.columns > div {
+  .CallToActionWrapper .cols-2.columns > div {
     width: 100%;
   }
 
@@ -132,8 +164,8 @@
     width: 100%;
   }
 
-  #mitmachen form .ButtonWrapper,
-  #mitmachen form .rpc-button {
+  .CallToActionWrapper form .ButtonWrapper,
+  .CallToActionWrapper form .rpc-button {
     width: 100%;
   }
 
@@ -152,14 +184,5 @@
       white calc((100vw - 2rem) * 0.5),
       var(--prim) calc((100vw - 2rem) * 0.5)
     );
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .cta-img-content {
-    width: 60%;
-    min-width: 220px;
-    right: 1rem;
-    bottom: 1rem;
   }
 }

@@ -5,3 +5,4 @@ import "./autosize.js";
 import "./components/CtALogic.js";
 import "./components/actionform.js";
 import "./components/cookies.js";
+import "./components/supp-carousel.js";

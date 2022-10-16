@@ -48,27 +48,41 @@
     }
 
     &.is-active &__text {
-            height: auto;
-            margin-top: 4rem;
-            opacity: 1;
-            position: relative;
-            z-index: 100;
-            margin-left: -3rem;
+        height: auto;
+        margin-top: 4rem;
+        opacity: 1;
+        position: relative;
+        z-index: 100;
+        margin-left: -3rem;
 
-            @media (max-width: 1080px) {
-                margin-top: 6rem;
+        @media (max-width: 680px) {
+            margin-top: 6rem;
+        }
+
+        @media (max-width: 520px) {
+            margin-top: 1rem;
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .rpc-supp-testimonial__content:not(.rpc-supp-testimonial__content-block), .rpc-supp-testimonial__content-block p {
+            &::before, &::after {
+                display: inline;
             }
 
-            @media (max-width: 520px) {
-                margin-top: 1rem;
-                margin-left: 0;
-                width: 100%;
+            &::before {
+                content: "«";
             }
+            &::after {
+                content: "»";
+            }
+        }
     }
 }
 
 .splide__pagination {
     bottom: -3rem;
+    display: flex !important;
 
     .splide__pagination__page {
         &.is-active {

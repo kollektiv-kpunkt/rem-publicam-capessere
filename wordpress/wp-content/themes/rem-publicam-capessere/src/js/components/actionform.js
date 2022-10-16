@@ -52,6 +52,53 @@ if (document.querySelector(".rpc-actionform-container")) {
     });
 }
 
+if (document.querySelector("[data-step-type='thanksInterface']")) {
+  var thanksInterface = document.querySelector(
+    "[data-step-type='thanksInterface']"
+  );
+
+  var shareButtons = thanksInterface.querySelectorAll(".rpc-button");
+  var shareText = thanksInterface
+    .querySelector(".share-buttons")
+    .getAttribute("data-shareText");
+  shareButtons.forEach(function (button) {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      var type = button.getAttribute("data-type");
+      switch (type) {
+        case "facebook":
+          window.open(
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+              encodeURIComponent(window.location.href)
+          );
+          break;
+        case "whatsapp":
+          window.open(
+            "https://api.whatsapp.com/send?text=" +
+              encodeURIComponent(shareText + " " + window.location.href)
+          );
+          break;
+        case "telegram":
+          window.open(
+            "https://telegram.me/share/url?url=" +
+              encodeURIComponent(window.location.href) +
+              "&text=" +
+              encodeURIComponent(shareText)
+          );
+          break;
+        case "email":
+          window.open(
+            "mailto:?body=" +
+              encodeURIComponent(shareText) +
+              "%0D%0A" +
+              encodeURIComponent(window.location.href)
+          );
+          break;
+      }
+    });
+  });
+}
+
 function formSubmission(form, formData) {
   form.querySelectorAll("input, textarea").forEach(function (input) {
     formData[input.name] = {

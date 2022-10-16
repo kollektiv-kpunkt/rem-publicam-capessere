@@ -28,8 +28,8 @@ $supporters = $supporters->get_posts();
                         <?php echo get_the_post_thumbnail($supporter->ID, 'medium_large'); ?>
                     </div>
                     <div class="rpc-supp-testimonial__text">
-                        <div class="rpc-supp-testimonial__content">
-                            «<?php echo $supporter->post_content; ?>»
+                        <div class="leading-tight rpc-supp-testimonial__content<?= (strpos($supporter->post_content, "<!--") !== FALSE) ? " rpc-supp-testimonial__content-block" : ""; ?>">
+                            <?php echo $supporter->post_content; ?>
                         </div>
                         <div class="rpc-supp-testimonial__author leading-none mt-4">
                             <b><?php echo $supporter->post_title; ?><br></b>
