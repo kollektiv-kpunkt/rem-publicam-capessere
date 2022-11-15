@@ -3,10 +3,10 @@
     "title": "Details: Supporters",
     "fields": [
         {
-            "key": "field_62c96a405d187",
-            "label": "Position",
-            "name": "position",
-            "type": "text",
+            "key": "field_6368fc001166a",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -18,8 +18,26 @@
             "default_value": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
+        },
+        {
+            "key": "field_62c96a405d187",
+            "label": "Position",
+            "name": "position",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_62c96a735d188",
@@ -126,5 +144,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1663868878
+    "modified": 1667825910
 }

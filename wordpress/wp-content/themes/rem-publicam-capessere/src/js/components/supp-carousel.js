@@ -2,8 +2,8 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css";
 import "./supp-carousel.scss";
 
-if (document.querySelector(".splide")) {
-  const splideController = new Splide(".splide", {
+if (document.querySelector(".rpc-supp-quotes .splide")) {
+  const splideController = new Splide(".rpc-supp-quotes .splide", {
     type: "loop",
     perPage: 3,
     perMove: 1,

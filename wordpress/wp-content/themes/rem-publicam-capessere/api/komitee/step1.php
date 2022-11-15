@@ -51,6 +51,9 @@ if (isset($data["zip"])) {
 if (isset($data["city"])) {
     update_field("city", $data["city"], $data["post_id"]);
 }
+if (isset($data["email"])) {
+    update_field("email", $data["email"], $data["post_id"]);
+}
 
 if (!isset($data["public"])) {
     $data["public"] = true;

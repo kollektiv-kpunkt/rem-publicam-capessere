@@ -6,11 +6,11 @@ $dotenv->safeLoad();
 
 /* RemPublicamCapessere */
 function rpc_scripts() {
-    wp_enqueue_style( 'fa', get_template_directory_uri() . "/lib/font-awesome/css/font-awesome.min.css", [], "1.0.0" );
-    wp_enqueue_style( 'theme', get_template_directory_uri() . '/dist/theme.css', [], "1.0.0" );
-    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/dist/fonts/fonts.css', [], "1.0.0" );
-    wp_enqueue_style( 'bundle', get_template_directory_uri() . '/dist/style.css', [], "1.0.0" );
-    wp_enqueue_script( 'bundle', get_template_directory_uri() . '/dist/app.js', array(), "1.0.0", true );
+    wp_enqueue_style( 'fa', get_template_directory_uri() . "/lib/font-awesome/css/font-awesome.min.css", [], "2.0.0" );
+    wp_enqueue_style( 'theme', get_template_directory_uri() . '/dist/theme.css', [], "2.0.0" );
+    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/dist/fonts/fonts.css', [], "2.0.0" );
+    wp_enqueue_style( 'bundle', get_template_directory_uri() . '/dist/style.css', [], "2.0.0" );
+    wp_enqueue_script( 'bundle', get_template_directory_uri() . '/dist/app.js', array(), "2.0.0", true );
 }
 add_action( 'wp_enqueue_scripts', 'rpc_scripts' );
 
@@ -77,12 +77,29 @@ function rpc_cookie_shortcode($atts, $content = null) {
 
 add_shortcode('rpc-cookie-settings', 'rpc_cookie_shortcode');
 
+function rpc_supporters_counter_shortcode($atts, $content = null) {
+    ob_start();
+    $supporters = get_posts([
+        'post_type'   => 'supporter',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ]);
+    return count($supporters);
+}
+
+add_shortcode('rpc-supporters-count', 'rpc_supporters_counter_shortcode');
+
 
 // ACF
 
 function rpc_acf() {
-    define( 'MY_ACF_PATH', get_stylesheet_directory() . '/lib/acf/' );
-    define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/lib/acf/' );
+    if (is_child_theme()) {
+		define( 'MY_ACF_PATH', get_stylesheet_directory() . '/../rem-publicam-capessere/lib/acf/' );
+    	define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/../rem-publicam-capessere/lib/acf/' );
+	} else {
+		define( 'MY_ACF_PATH', get_stylesheet_directory() . '/lib/acf/' );
+    	define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/lib/acf/' );
+	}
     include_once( MY_ACF_PATH . 'acf.php' );
     add_filter('acf/settings/url', 'my_acf_settings_url');
     function my_acf_settings_url( $url ) {
@@ -162,6 +179,28 @@ function rpc_blocktypes() {
             'category'          => 'rpc',
             'icon'              => '',
             'keywords'          => array("topics", "homepage"),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'static_gallery',
+            'title'             => __('Static Gallery'),
+            'description'       => __('Static Gallery'),
+            'render_template'   => 'template-parts/blocks/static_gallery.php',
+            'category'          => 'rpc',
+            'icon'              => '',
+            'keywords'          => array("gallery", "images"),
+            'supports'          => array('anchor' => true),
+        ));
+
+        acf_register_block_type(array(
+            'name'              => 'fp-heroine',
+            'title'             => __('Frontpage Heroine'),
+            'description'       => __('Heroine for frontpage'),
+            'render_template'   => 'template-parts/blocks/fp-heroine.php',
+            'category'          => 'rpc',
+            'icon'              => '',
+            'keywords'          => array("heroine", "frontpage"),
+            'supports'          => array('anchor' => true),
         ));
     }
 }

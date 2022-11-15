@@ -112,6 +112,16 @@ cookieconsent.run({
             ],
           },
           {
+            title: "Drittpartei Cookies",
+            description:
+              "Diese Cookies sind von Drittparteien und erlauben es uns, Inhalte von anderen Anbietern einzubinden und Daten mit Ihnen auszutauschen.",
+            toggle: {
+              value: "thirdparty", // your cookie category
+              enabled: false,
+              readonly: false,
+            },
+          },
+          {
             title: "Mehr Informationen",
             description:
               'Für irgendwelche weiteren Fragen betreffend unserer Cookie Verwendungen, <a href="mailto:info@spkantonzh.ch" class="cc-link">kontaktiere uns bitte.</a>',

@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 import Cropper from "cropperjs";
 import "cropperjs/dist/cropper.css";
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 
 const formUUID = uuidv4();
 
@@ -69,29 +71,29 @@ if (document.querySelector("[data-step-type='thanksInterface']")) {
         case "facebook":
           window.open(
             "https://www.facebook.com/sharer/sharer.php?u=" +
-              encodeURIComponent(window.location.href)
+            encodeURIComponent(window.location.href)
           );
           break;
         case "whatsapp":
           window.open(
             "https://api.whatsapp.com/send?text=" +
-              encodeURIComponent(shareText + " " + window.location.href)
+            encodeURIComponent(shareText + " " + window.location.href)
           );
           break;
         case "telegram":
           window.open(
             "https://telegram.me/share/url?url=" +
-              encodeURIComponent(window.location.href) +
-              "&text=" +
-              encodeURIComponent(shareText)
+            encodeURIComponent(window.location.href) +
+            "&text=" +
+            encodeURIComponent(shareText)
           );
           break;
         case "email":
           window.open(
             "mailto:?body=" +
-              encodeURIComponent(shareText) +
-              "%0D%0A" +
-              encodeURIComponent(window.location.href)
+            encodeURIComponent(shareText) +
+            "%0D%0A" +
+            encodeURIComponent(window.location.href)
           );
           break;
       }
@@ -272,5 +274,16 @@ function sendFormdata(formData) {
     });
     const content = await rawResponse.json();
     console.log(content);
+    if (content.success != true) {
+      switch (content.action) {
+        case "notyf":
+          const notyf = new Notyf();
+          notyf.error({
+            message: content.message,
+            duration: 9000,
+            dismissible: true
+          });
+      }
+    }
   })();
 }

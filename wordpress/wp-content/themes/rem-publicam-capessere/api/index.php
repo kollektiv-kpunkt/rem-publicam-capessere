@@ -117,6 +117,16 @@ Router::post('/api/v1/komitee/step2', function() {
     exit;
 });
 
+Router::get('/api/v1/komitee/step3', function() {
+    include(__DIR__ . "/komitee/step3/form.php");
+    exit;
+});
+
+Router::post('/api/v1/komitee/step3', function() {
+    include(__DIR__ . "/komitee/step3/submission.php");
+    exit;
+});
+
 Router::get('/api/v1/share/{channel}/', function($channel) {
     $mtmpageid = $_ENV["MATOMOID"];
     $mtmurl = $_ENV["MATOMOURL"];

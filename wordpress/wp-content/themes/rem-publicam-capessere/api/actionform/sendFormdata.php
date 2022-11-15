@@ -8,6 +8,24 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $_POST;
 }
 
+$existing_supporters = get_posts(array(
+    'post_type'     => 'supporter',
+    'meta_key'      => 'email',
+    'meta_value'    => $data["email"]["value"],
+));
+
+if(count($existing_supporters) > 0) {
+    echo(json_encode($return = [
+            "success" => false,
+            "message" => "Du bist bereits auf der Liste der Unterstützer:innen! Danke vielmals für dein Engagement!",
+            "action" => "notyf",
+            "errors" => []
+        ]
+    ));
+    exit;
+}
+
+
 if (!isset($data["db_type"])) {
 
     $mcload = [
@@ -24,7 +42,7 @@ if (!isset($data["db_type"])) {
         if ($field["mmerge"] != false && $field["is-address"] == false) {
             $mcload["merge_fields"][$field["mmerge"]] = $field["value"];
         }
-        if ($field["mtag"] != false) {
+        if ($field["mtag"] != false && $field["value"] != false) {
             $mcload["tags"][] = $field["mtag"];
         }
         if ($field["is-optin"] != false) {
@@ -121,12 +139,26 @@ if (isset($data["base-config"]["komitee_name"])) {
     $json = [
         "fname" => $data["fname"]["value"],
         "zip" => $data["plz"]["value"],
-        "public" => $data["komitee_name"]["value"]
+        "public" => $data["komitee_name"]["value"],
+        "email" => $data["email"]["value"],
     ];
     if ($data["base-config"]["komitee_name"] == true) {
         $json["lname"] = $data["lname"]["value"];
         $json["city"] = $data["city"]["value"];
     }
+    if (isset($data["position"]["value"]) && $data["position"]["value"] != "") {
+        $json["position"] = $data["position"]["value"];
+    }
+    if (isset($data["base-config"]["supporter-status"]) && $data["base-config"]["supporter-status"] == "1") {
+        $config = [
+            "default_status" => "1",
+        ];
+    } else {
+        $config = [
+            "default_status" => [],
+        ];
+    }
+    $json["config"] = base64_encode(json_encode($config));
 
     if ($data["base-config"]["komitee_quote"] == true) {
         $json["quote"] = $data["quote"]["value"];
@@ -144,7 +176,7 @@ if (isset($data["base-config"]["komitee_name"])) {
 
     $response = json_decode($response->getBody(),true);
 
-    if ($data["base-config"]["komitee_img"] == true) {
+    if ($data["komitee_img"]["value"] == true) {
         $json = [
             "image" => $data["komitee_img"]["value"],
             "uuid" => $response["formData"]["uuid"],

@@ -1,3 +1,8 @@
+#RPC
+data/*
+lib/acf/*
+!lib/acf/acf-json
+
 # NPM
 # Logs
 logs

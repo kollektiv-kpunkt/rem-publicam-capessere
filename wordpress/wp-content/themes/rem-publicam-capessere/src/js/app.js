@@ -4,5 +4,7 @@ import "./whenInViewport.js";
 import "./autosize.js";
 import "./components/CtALogic.js";
 import "./components/actionform.js";
+import "./components/formlogic.js";
 import "./components/cookies.js";
 import "./components/supp-carousel.js";
+import "./components/static-image-gallery.js";

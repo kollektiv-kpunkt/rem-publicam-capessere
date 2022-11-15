@@ -1,0 +1,22 @@
+.rpc-static-image-gallery__slide {
+
+    img {
+        opacity: 0.4;
+        z-index: 1;
+        filter: grayscale(1);
+        transition: 0.15s ease-in-out filter, 0.15s ease-in-out opacity;
+    }
+
+    &.is-active {
+
+        img {
+            opacity: 1;
+            z-index: 100;
+            filter: grayscale(0);
+
+            @media (max-width: 520px) {
+                transform: scale(1);
+            }
+        }
+    }
+}

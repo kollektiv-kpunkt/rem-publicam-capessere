@@ -32,36 +32,42 @@ if (document.querySelector("input#rpc-komitee-portrait")) {
           .addEventListener("click", function (e) {
             e.preventDefault();
             const croppedImage = cropper.getCroppedCanvas().toDataURL();
-            var currData = JSON.parse(
-              localStorage.getItem("/api/v1/komitee/step1")
-            );
-            var formData = {
-              image: croppedImage,
-              post_id: currData.post_id,
-              postData: currData,
-            };
-            (async () => {
-              const response = await fetch("/api/v1/komitee/step2", {
-                method: "POST",
-                headers: {
-                  // Accept: "application/json",
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-              });
-              const data = await response.json();
-              console.log(data);
-              if (data.status == "success") {
-                switch (data.action) {
-                  case "js":
-                    eval(data.js);
-                    break;
-                }
-              } else {
+            if (document.querySelector("#rpc-testimonial-cropped")) {
+              document.querySelector(".rpc-testimonial-cropper-wrapper").remove();
+              document.querySelector("#rpc-testimonial-cropped input[type=hidden]").value = croppedImage;
+              document.querySelector("#rpc-testimonial-cropped").style.display = "block";
+            } else {
+              var currData = JSON.parse(
+                localStorage.getItem("/api/v1/komitee/step1")
+              );
+              var formData = {
+                image: croppedImage,
+                post_id: currData.post_id,
+                postData: currData,
+              };
+              (async () => {
+                const response = await fetch("/api/v1/komitee/step2", {
+                  method: "POST",
+                  headers: {
+                    // Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(formData),
+                });
+                const data = await response.json();
                 console.log(data);
-                alert("Something went wrong. Please try again.");
-              }
-            })();
+                if (data.status == "success") {
+                  switch (data.action) {
+                    case "js":
+                      eval(data.js);
+                      break;
+                  }
+                } else {
+                  console.log(data);
+                  alert("Something went wrong. Please try again.");
+                }
+              })();
+            }
           });
       });
     });

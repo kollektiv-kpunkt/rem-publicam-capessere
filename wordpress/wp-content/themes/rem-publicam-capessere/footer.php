@@ -3,7 +3,9 @@
 ?>
 </div>
 <?php
-get_template_part("/templates/partials/footer");
+if (!isset($args["noFooterNav"])) {
+    get_template_part("/templates/partials/footer");
+}
 ?>
 
 <?php

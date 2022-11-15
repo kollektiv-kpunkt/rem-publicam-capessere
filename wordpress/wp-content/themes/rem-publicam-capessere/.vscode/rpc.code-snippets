@@ -98,6 +98,7 @@
             "    'category'          => 'rpc',",
             "    'icon'              => '',",
             "    'keywords'          => array(${4:keywords}),",
+            "    'supports'          => array('anchor' => true, ${5:supports}),",
             "));",
         ],
         "description": "Register new block."
