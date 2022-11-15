@@ -1,6 +1,9 @@
 <?php
+require __DIR__ . '/supporters/supporterClass.php';
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
+use api\actionform\supporters\Supporter as Supporter;
+
 
 if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $json;
@@ -8,22 +11,49 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $_POST;
 }
 
-$existing_supporters = get_posts(array(
-    'post_type'     => 'supporter',
-    'meta_key'      => 'email',
-    'meta_value'    => $data["email"]["value"],
-));
+$supporter = new Supporter($data);
 
-if(count($existing_supporters) > 0) {
-    echo(json_encode($return = [
-            "success" => false,
-            "message" => "Du bist bereits auf der Liste der Unterstützer:innen! Danke vielmals für dein Engagement!",
-            "action" => "notyf",
-            "errors" => []
-        ]
-    ));
+// if ($supporter->preexisting) {
+//     $response = [
+//         "status" => "error",
+//         "type" => "preexisting",
+//         "action" => "notyf",
+//         "message" => "Danke für deine Unterstützung! Du bist bereits in unserer Unterstützer:innen-Liste eingetragen."
+//     ];
+//     echo(json_encode($response));
+//     exit;
+// }
+
+foreach ($data as $name => $field) {
+    if (gettype($field) == "string") {
+        continue;
+    }
+    $supporter->addField($name, $field);
+}
+
+$supporter->storeWP();
+$supporter->storeExternal();
+$supporter->logInternal();
+
+if ($supporter->success != true) {
+    $response = [
+        "status" => "error",
+        "type" => "unknown",
+        "action" => "notyf",
+        "message" => "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es später noch einmal.",
+        "error" => $supporter->error
+    ];
+    echo(json_encode($response));
     exit;
 }
+
+
+$response = [
+    "status" => "success",
+    "type" => "success"
+];
+echo(json_encode($response));
+exit;
 
 
 if (!isset($data["db_type"])) {
@@ -39,8 +69,8 @@ if (!isset($data["db_type"])) {
         if (gettype($field) == "string") {
             continue;
         }
-        if ($field["mmerge"] != false && $field["is-address"] == false) {
-            $mcload["merge_fields"][$field["mmerge"]] = $field["value"];
+        if ($field["merge"] != false && $field["is-address"] == false) {
+            $mcload["merge_fields"][$field["merge"]] = $field["value"];
         }
         if ($field["mtag"] != false && $field["value"] != false) {
             $mcload["tags"][] = $field["mtag"];
@@ -114,17 +144,14 @@ if (!isset($data["db_type"])) {
         if (gettype($field) == "string") {
             continue;
         }
-        if ($field["mmerge"] != false && $field["is-address"] == false) {
-            $contact[$field["mmerge"]] = $field["value"];
+        if ($field["merge"] != false && $field["is-address"] == false) {
+            $contact[$field["merge"]] = $field["value"];
         }
         if ($field["mtag"] != false) {
             $contact["tags"][] = $field["mtag"];
         }
         if ($field["is-optin"] != false) {
             $contact["tags"][] = "optin";
-        }
-        if ($field["is-address"] == true) {
-            $contact[$field["address-field"]] = $field["value"];
         }
     }
 

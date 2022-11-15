@@ -16,7 +16,7 @@ if (document.querySelector(".rpc-actionform-container")) {
     .querySelector(".rpc-actionform-container")
     .getAttribute("data-formtag");
   document.querySelectorAll(".rpc-actionform-form").forEach(function (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
       var form = e.target;
       var formID = form
@@ -26,7 +26,24 @@ if (document.querySelector(".rpc-actionform-container")) {
         .closest(".rpc-actionform-container")
         .getAttribute("data-formtag");
       formData = formSubmission(form, formData);
-      nextStep(form, formID, formData);
+      const Loader = addLoader();
+      var formResponse = await sendFormdata(formData);
+      if (formData.img_src) {
+        delete formData.img_src;
+      }
+      console.log(JSON.stringify(formData));
+      setTimeout(() => {
+        removeLoader(Loader);
+        if (formResponse.status != "success") {
+          var notyf = new Notyf({
+            duration: 9000,
+            dismissible: true
+          });
+          notyf.error(formResponse.message);
+        } else {
+          nextStep(form, formID, formData);
+        }
+      }, 500);
     });
   });
   document
@@ -106,21 +123,25 @@ function formSubmission(form, formData) {
     formData[input.name] = {
       value: input.value,
       type: input.type,
-      mmerge: input.getAttribute("data-mmerge") || false,
-      mtag: input.getAttribute("data-mtag") || false,
-      "is-optin": input.getAttribute("data-is-optin") || false,
-      "is-address": input.getAttribute("data-is-address") || false,
-      "address-field": input.getAttribute("data-address-field") || false,
+      merge: input.getAttribute("data-merge") || false,
+      mtag: input.getAttribute("data-mtag") || false
     };
+
     if (input.getAttribute("data-base-config")) {
       if (!formData["base-config"]) {
         formData["base-config"] = {};
       }
-      let newConfig = JSON.parse(input.getAttribute("data-base-config"));
-      formData["base-config"] = Object.assign(
-        formData["base-config"],
-        newConfig
-      );
+      let base_config_value;
+      if (input.value == "on" || input.value == "off") {
+        base_config_value = input.checked;
+      } else {
+        base_config_value = input.value;
+      }
+
+      formData["base-config"][input.getAttribute("data-base-config")] = base_config_value;
+
+      formData[input.name]["is-base-config"] = true;
+      formData[input.name]["base-config-field"] = input.getAttribute("data-base-config");
     }
     if (input.type == "checkbox") {
       formData[input.name].value = input.checked;
@@ -179,8 +200,9 @@ function setDataURL(dataURL, element) {
     var dataURL = canvas.toDataURL();
     var input = document.createElement("input");
     input.setAttribute("type", "hidden");
-    input.setAttribute("name", "komitee_img");
+    input.setAttribute("name", "img_src");
     input.setAttribute("value", dataURL);
+    input.setAttribute("data-merge", "JUSTWP");
     var fileInput = element.closest(".input-wrapper.file");
     element.closest("form").append(input);
     fileInput.innerText = "Bild hochgeladen";
@@ -255,35 +277,41 @@ function nextStep(element, formID, formData) {
       nextStep(redirectElement, formID);
     }, 1000);
   }
-  if (nextStepElement.getAttribute("data-form-end") == "1") {
-    sendFormdata(formData);
-  }
   element.closest(".rpc-actionform-step").setAttribute("hidden", true);
 }
 
-function sendFormdata(formData) {
-  console.log(JSON.stringify(formData));
-  (async () => {
-    const rawResponse = await fetch(`/api/v1/af-v2`, {
-      method: "POST",
-      headers: {
-        // Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-    const content = await rawResponse.json();
-    console.log(content);
-    if (content.success != true) {
-      switch (content.action) {
-        case "notyf":
-          const notyf = new Notyf();
-          notyf.error({
-            message: content.message,
-            duration: 9000,
-            dismissible: true
-          });
-      }
-    }
-  })();
+async function sendFormdata(formData) {
+  const rawResponse = await fetch(`/api/v1/af-v2`, {
+    method: "POST",
+    headers: {
+      // Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+  const content = await rawResponse.json();
+  return content;
+};
+
+
+function addLoader() {
+  let ID = uuidv4();
+  var loader = document.createElement("div");
+  loader.setAttribute("id", ID);
+  loader.classList.add("loader");
+  loader.style = "position: fixed; top: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); background: rgba(0,0,0,0.5); z-index: 9999; opacity: 0; transition: opacity 0.3s ease-in-out;";
+  loader.innerHTML = `<p>Bitte warten...</p>`;
+  document.body.append(loader);
+  setTimeout(() => {
+    loader.style.opacity = 1;
+  }, 100);
+  return ID;
+}
+
+function removeLoader(ID) {
+  var loader = document.getElementById(ID);
+  loader.style.opacity = 0;
+  setTimeout(() => {
+    loader.remove();
+  }, 300);
 }

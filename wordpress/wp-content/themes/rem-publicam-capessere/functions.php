@@ -6,11 +6,16 @@ $dotenv->safeLoad();
 
 /* RemPublicamCapessere */
 function rpc_scripts() {
-    wp_enqueue_style( 'fa', get_template_directory_uri() . "/lib/font-awesome/css/font-awesome.min.css", [], "2.0.0" );
-    wp_enqueue_style( 'theme', get_template_directory_uri() . '/dist/theme.css', [], "2.0.0" );
-    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/dist/fonts/fonts.css', [], "2.0.0" );
-    wp_enqueue_style( 'bundle', get_template_directory_uri() . '/dist/style.css', [], "2.0.0" );
-    wp_enqueue_script( 'bundle', get_template_directory_uri() . '/dist/app.js', array(), "2.0.0", true );
+    if (isset($_ENV["production"]) && $_ENV["production"] == "true") {
+        $version = wp_get_theme()->get( 'Version' );
+    } else {
+        $version = time();
+    }
+    wp_enqueue_style( 'fa', get_template_directory_uri() . "/lib/font-awesome/css/font-awesome.min.css", [], $version );
+    wp_enqueue_style( 'theme', get_template_directory_uri() . '/dist/theme.css', [], $version );
+    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/dist/fonts/fonts.css', [], $version );
+    wp_enqueue_style( 'bundle', get_template_directory_uri() . '/dist/style.css', [], $version );
+    wp_enqueue_script( 'bundle', get_template_directory_uri() . '/dist/app.js', array(), $version, true );
 }
 add_action( 'wp_enqueue_scripts', 'rpc_scripts' );
 

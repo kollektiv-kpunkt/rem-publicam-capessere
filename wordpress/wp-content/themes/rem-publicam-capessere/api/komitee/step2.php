@@ -40,7 +40,6 @@ function save_image( $base64_img, $title ) {
 
 $attach_id = save_image( $data["image"], $data["uuid"] );
 
-
 $post_thumbnail = set_post_thumbnail( $data["post_id"], $attach_id );
 
 if ($post_thumbnail) {

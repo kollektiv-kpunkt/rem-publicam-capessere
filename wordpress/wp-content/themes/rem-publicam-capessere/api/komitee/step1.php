@@ -6,7 +6,9 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
     $data = $_POST;
 }
 
-$data["uuid"] = uniqid("komitee-");
+if (!isset($data["uuid"])) {
+    $data["uuid"] = uniqid("komitee-");
+}
 
 if (!isset($data["config"])) {
     $data["post_status"] = "publish";
@@ -15,24 +17,31 @@ if (!isset($data["config"])) {
     ];
 } else {
     $config = json_decode(base64_decode($data["config"]), true);
-    if ($config["default_status"] == []) {
-        $data["post_status"] = "pending";
-    } else {
-        $data["post_status"] = "publish";
-    }
+    $data["post_status"] = $config["default_status"];
 }
 
+$preexistingSupporter = get_posts(array(
+    'post_type'     => 'supporter',
+    'meta_key'      => 'email',
+    'meta_value'    => $data["email"],
+    'post_status' => 'any',
+));
 
-$supporter = array(
-    'post_title'    =>  $data["fname"] . " " . $data["lname"],
-    'post_date'     =>  date("Y-m-d H:i:s"),
-    'post_name'     =>  $data["uuid"],
-    'post_type'     =>  'supporter',
-    'post_content'  =>  $data["quote"],
-    'post_status'   =>  $data["post_status"],
-);
-// create post in wordpress. Yay!
-$data["post_id"] = wp_insert_post($supporter);
+if (count($preexistingSupporter) > 0) {
+    $data["post_id"] = $preexistingSupporter[0]->ID;
+} else {
+    $data["post_id"] = wp_insert_post(array(
+        'post_date'     =>  date("Y-m-d H:i:s"),
+        'post_name'     =>  $data["uuid"],
+        'post_type'     =>  'supporter',
+        'post_status'   =>  $data["post_status"],
+    ));
+}
+
+wp_update_post(array(
+    'ID'            =>  $data["post_id"],
+    'post_title'    =>  $data["fname"]  . (isset($data["lname"]) ? " " . $data["lname"] : ""),
+));
 
 if ($data["quote"] == "") {
     $data["categories"] = [];
@@ -65,6 +74,22 @@ if ($data["public"] == true) {
     update_field("public", "", $data["post_id"]);
 }
 
+if (isset($data["quote"])) {
+    wp_update_post(array(
+        'ID'            =>  $data["post_id"],
+        'post_content'  =>  $data["quote"],
+    ));
+}
+
+if (isset($data["actionform"]) && $data["actionform"] == "true") {
+    echo(json_encode(array(
+        "status" => "success",
+        "post_id" => $data["post_id"],
+        "post" => get_post( $data["post_id"])
+    )));
+}
+
+exit;
 $action = "js";
 if ($data["quote"] == "") {
     $js = <<<EOD

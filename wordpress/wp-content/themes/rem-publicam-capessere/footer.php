@@ -40,7 +40,5 @@ endif;
 wp_footer();
 ?>
 
-<!-- <script src="<?= get_template_directory_uri() ?>/tmp/logsubmissions.js"></script> -->
-
 </body>
 </html>
