@@ -1,0 +1,27 @@
+{
+  "name": "rpc/event-list",
+  "title": "Event List",
+  "description": "List of Events",
+  "category": "rpc-blocks",
+  "icon": "calendar",
+  "keywords": [
+    "event",
+    "list",
+    "events",
+    "event list",
+    "rpc",
+    "SP",
+    "PS"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "layout.php",
+    "postTypes": [
+      "page"
+    ]
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true
+  }
+}

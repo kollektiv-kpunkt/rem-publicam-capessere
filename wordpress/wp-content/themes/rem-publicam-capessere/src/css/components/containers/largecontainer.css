@@ -1,9 +1,0 @@
-.LargeContainerWrapper {
-  display: flex;
-}
-
-.LargeContainerInner {
-  max-width: 1300px;
-  width: calc(100% - 2rem);
-  margin: auto;
-}

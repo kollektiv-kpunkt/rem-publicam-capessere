@@ -1,7 +1,9 @@
+@import "./fonts/fonts.scss";
+
 html {
-  font-family: "NimbusSanNov", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 h1,
@@ -10,16 +12,50 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Replica", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: min(0.3em, 27px);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: min(0.5em, 27px);
+    font-weight: 900;
+
+    @media (min-width: 981px) {
+        hyphens: none;
+    }
 }
 
-p + p {
-  margin-top: 0.75rem;
+p+p {
+    margin-top: 0.8em;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.75rem;
+}
+
+h3 {
+    font-size: 2.25rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.8rem;
+}
+
+h6 {
+    font-size: 1.7rem;
+}
+
+b,
+strong {
+    font-weight: 600;
 }
 
 body.page #main-content a:not(.rpc-button) {

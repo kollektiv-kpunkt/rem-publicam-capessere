@@ -1,0 +1,22 @@
+{
+  "name": "rpc/fp-heroine",
+  "title": "Frontpage Heroine",
+  "description": "Heroine on Frontpage",
+  "category": "rpc-blocks",
+  "icon": "align-full-width",
+  "keywords": [
+    "heroine",
+    "frontpage",
+    "rpc",
+    "SP",
+    "PS"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "layout.php",
+    "postTypes": [
+      "page"
+    ]
+  },
+  "align": "full"
+}

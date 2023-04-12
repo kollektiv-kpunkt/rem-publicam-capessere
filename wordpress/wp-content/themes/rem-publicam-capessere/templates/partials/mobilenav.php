@@ -1,7 +1,7 @@
 <div id="mobile-nav-wrapper" hidden>
     <div id="mobile-nav-container">
         <div id="mobile-nav-inner">
-            <ul class="flex flex-col gap-3">
+            <ul class="flex flex-col gap-3 font-semibold">
                 <?php
                 $navitems = rpc_menu_items( 'rpc-main-nav', [] );
                 foreach( $navitems as $item ) : ?>
@@ -14,7 +14,7 @@
                 $i=0;
                 foreach( $ctas as $cta ) : ?>
                     <li>
-                        <div class="ButtonWrapper"><a href="<?= $cta->url ?>"<?php ($cta->target == "_blank") ? print(" target='_blank'") : "" ?> class="rpc-button rpc-button-neg"><?= $cta->title ?></a></div>
+                        <div class="ButtonWrapper"><a href="<?= $cta->url ?>"<?php ($cta->target == "_blank") ? print(" target='_blank'") : "" ?> class="rpc-button negative"><?= $cta->title ?></a></div>
                     </li>
                 <?php
                 $i++;

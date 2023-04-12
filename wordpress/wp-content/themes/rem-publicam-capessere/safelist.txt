@@ -1,0 +1,10 @@
+w-screen
+top-0
+bg-opacity-70
+backdrop-blur-lg
+backdrop-filter
+opacity-0
+transition
+duration-500
+ease-in-out
+text-center

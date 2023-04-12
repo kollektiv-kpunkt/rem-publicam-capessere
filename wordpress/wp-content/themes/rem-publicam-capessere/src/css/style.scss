@@ -1,23 +1,24 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 @import "root.scss";
 
 @import "typography/typo.scss";
 
 @import "components/style.scss";
-@import "components/containers/largecontainer.css";
-@import "components/containers/mediumcontainer.css";
-@import "components/containers/smallcontainer.css";
-@import "components/containers/columns.css";
 
 @import "templates/style.scss";
+@import "utils/style.scss";
 
 html {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 :target {
-  padding-top: 5vh;
+    padding-top: 5vh;
 }
 
 .target-wrapper:target {
-  padding-top: 1px;
+    padding-top: 1px;
 }

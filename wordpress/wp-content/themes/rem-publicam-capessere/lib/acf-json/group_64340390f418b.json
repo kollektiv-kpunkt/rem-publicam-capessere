@@ -1,0 +1,259 @@
+{
+    "key": "group_64340390f418b",
+    "title": "Hidden: Form Field",
+    "fields": [
+        {
+            "key": "field_643403c4ff9c8",
+            "label": "Label",
+            "name": "label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64340391ff9c7",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text": "Text",
+                "email": "Email",
+                "number": "Number",
+                "checkbox": "Checkbox"
+            },
+            "default_value": "text",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_643403ceff9c9",
+            "label": "Name",
+            "name": "name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_643403f6ff9ca",
+            "label": "Width",
+            "name": "width",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "half": "Half",
+                "fullwidth": "Full width"
+            },
+            "default_value": "half",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_64340ea15e408",
+            "label": "Placeholder",
+            "name": "placeholder",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "text"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "email"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "number"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64340eb55e409",
+            "label": "Default Value",
+            "name": "default_value",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "text"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "email"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "number"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64340edc5e40e",
+            "label": "Default State",
+            "name": "default_state",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64340391ff9c7",
+                        "operator": "==",
+                        "value": "checkbox"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "checked": "Checked",
+                "": "unchecked"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_643411857430e",
+            "label": "Required?",
+            "name": "required",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "not required": "not required",
+                "required": "required"
+            },
+            "default_value": "not required",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1681134007
+}

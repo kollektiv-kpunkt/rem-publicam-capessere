@@ -1,44 +1,44 @@
 .rpc-toggle-details {
     width: 100%;
-    border: 2px solid var(--prim);
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     border-radius: 2px;
-    padding: 1rem;
-    background-color: var(--prim);
     transition: 0.25s ease background-color;
+    margin-top: -2px;
+    @apply py-4 px-2;
 
     summary {
+        .ppv-content-toggle-title {
+            max-width: 80%;
+            line-height: 1.35;
+        }
+
         list-style: none;
         cursor: pointer;
-        color: white;
-        font-weight: bold;
+        color: black;
     }
+
     summary::-webkit-details-marker {
         display: none;
     }
 
     .rpc-toggle-icon {
-        font-size: 4rem;
-        height: 1.25rem;
-        width: 1.25rem;
-        line-height: 0.28;
-        transform-origin: 0.65rem 0.65rem;
-        transform: rotate(90deg) translateY(-5px);
+        height: fit-content;
         transition: 0.25s ease transform;
+        @apply text-primary
     }
 
     &[open] {
         background-color: white;
+        @apply bg-primary bg-opacity-10;
 
         .rpc-toggle-summary {
-            color: var(--accent);
+            font-weight: 700;
+            color: theme('colors.primary');
         }
 
         .rpc-toggle-icon {
-            transform: rotate(-90deg) translateY(-10px);
-        }
-
-        .rpc-toggle-content {
-            color: black
+            transform: rotate(-180deg);
         }
     }
 }

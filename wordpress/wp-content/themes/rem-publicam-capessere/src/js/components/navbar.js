@@ -11,7 +11,7 @@ if (document.querySelector(".NavbarWrapper")) {
       console.log("Fuck you Safari");
       return;
     }
-    if (window.scrollY > this.oldScroll) {
+    if (window.scrollY > document.oldScroll) {
       scrollBar.classList.add("hidescroll");
     } else {
       scrollBar.classList.remove("hidescroll");
@@ -22,6 +22,6 @@ if (document.querySelector(".NavbarWrapper")) {
       scrollBar.classList.remove("scroll");
       scrollBar.classList.remove("hidescrolll");
     }
-    this.oldScroll = window.scrollY;
+    document.oldScroll = window.scrollY;
   });
 }

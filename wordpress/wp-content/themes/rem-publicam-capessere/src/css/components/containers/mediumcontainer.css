@@ -1,9 +1,0 @@
-.MediumContainerWrapper {
-  display: flex;
-}
-
-.MediumContainerInner {
-  max-width: 1080px;
-  width: calc(100% - 2rem);
-  margin: auto;
-}

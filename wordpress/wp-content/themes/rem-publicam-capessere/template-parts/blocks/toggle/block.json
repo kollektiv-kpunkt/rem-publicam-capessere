@@ -1,0 +1,26 @@
+{
+  "name": "rpc/toggle",
+  "title": "Detail Toggle",
+  "description": "Toggle that opens/closes based on user interaction",
+  "category": "rpc-blocks",
+  "icon": "info-outline",
+  "keywords": [
+    "toggle",
+    "accordion",
+    "detail",
+    "rpc",
+    "SP",
+    "PS"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "layout.php",
+    "postTypes": [
+      "page"
+    ]
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true
+  }
+}

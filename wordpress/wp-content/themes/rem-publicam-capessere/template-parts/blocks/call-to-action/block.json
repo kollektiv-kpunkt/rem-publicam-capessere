@@ -1,0 +1,26 @@
+{
+  "name": "rpc/call-to-action",
+  "title": "Call to action block",
+  "description": "Fullwidth call to action block with signup form",
+  "category": "rpc-blocks",
+  "icon": "buddicons-buddypress-logo",
+  "keywords": [
+    "supporters",
+    "form",
+    "call to action",
+    "rpc",
+    "SP",
+    "PS"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "layout.php",
+    "postTypes": [
+      "page"
+    ]
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true
+  }
+}

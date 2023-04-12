@@ -1,0 +1,19 @@
+$font-sizes: (
+    "small" : (0.75rem, 0.6rem),
+    "medium" : (1.3rem, 1.2rem),
+    "large" : (2.25rem, 1.6rem),
+    "x-large" : (3rem, 2rem),
+);
+
+@each $name,
+$size in $font-sizes {
+    .has-#{$name}-font-size {
+        font-size: nth($size, 1) !important;
+    }
+
+    @media (max-width: 767px) {
+        .has-#{$name}-font-size {
+            font-size: nth($size, 2) !important;
+        }
+    }
+}

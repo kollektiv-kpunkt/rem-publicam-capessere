@@ -3,7 +3,9 @@ get_header();
 
 if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <?php the_content(); ?>
+    <div class="main-content-container">
+        <?php the_content(); ?>
+    </div>
 
     <?php endwhile; else: ?>
 

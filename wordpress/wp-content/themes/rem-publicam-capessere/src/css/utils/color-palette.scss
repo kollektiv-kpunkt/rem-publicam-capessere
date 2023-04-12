@@ -1,0 +1,21 @@
+$colors: (
+    "rpc-primary": #e53136,
+    "rpc-black": #000000,
+    "rpc-white": #ffffff,
+);
+
+
+@each $name,
+$color in $colors {
+    .has-#{$name}-color {
+        color: $color;
+    }
+
+    .has-#{$name}-background-color {
+        background-color: $color;
+    }
+
+    .has-#{$name}-border-color {
+        border-color: $color;
+    }
+}

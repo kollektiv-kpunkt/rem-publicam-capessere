@@ -1,15 +1,14 @@
 module.exports = {
-  content: require("fast-glob").sync(["./**/*.php", "*.php"]),
+  content: [
+    './*.php',
+    './inc/**/*.php',
+    './**/*.php',
+    './**/**/*.php',
+    './safelist.txt'
+  ],
   safelist: [
-    "w-screen",
-    "top-0",
-    "bg-opacity-70",
-    "backdrop-blur-lg",
-    "backdrop-filter",
-    "opacity-0",
-    "transition",
-    "duration-500",
-    "ease-in-out",
+  ],
+  safelist: [
     {
       pattern: /text-(lg|sm|xs|[1-9]xl)/,
     },
@@ -17,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "var(--prim)",
+        primary: "#e53136",
       },
     },
   },

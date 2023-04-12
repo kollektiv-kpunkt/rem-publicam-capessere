@@ -1,65 +1,65 @@
 .rpc-button {
-  padding: 0.65em 1.5em 0.45em 1.5em;
-  border: 0.2em var(--bordercolor) solid;
-  letter-spacing: 0.05em;
-  border-radius: 0.15em;
-  display: block;
-  background-color: var(--backgroundcolor);
-  color: var(--textcolor);
-  box-sizing: border-box;
-  font-family: "Replica";
-  text-align: center;
-  text-transform: uppercase;
-  line-height: 0.8;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+    padding: 1em 1.5em 0.85em 1.5em;
+    border: 0.2em var(--bordercolor) solid;
+    letter-spacing: 0.05em;
+    display: block;
+    background-color: var(--backgroundcolor);
+    color: var(--textcolor);
+    box-sizing: border-box;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 0.8;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 
-  --bordercolor: var(--backgroundcolor);
-  --backgroundcolor: var(--prim);
-  --textcolor: white;
+    --bordercolor: var(--backgroundcolor);
+    --backgroundcolor: var(--prim);
+    --textcolor: white;
 
-  transition: 0.125s ease filter, 0.125s ease opacity;
-}
+    transition: 0.125s ease filter, 0.125s ease opacity;
 
-.rpc-button:hover {
-  -webkit-filter: brightness(1.15);
-  filter: brightness(1.15);
-}
+    &:hover {
+        filter: brightness(1.15);
+    }
 
-.rpc-button.rpc-button-neg {
-  --bordercolor: var(--backgroundcolor);
-  --backgroundcolor: white;
-  --textcolor: var(--prim);
-}
+    &.negative {
+        --bordercolor: var(--backgroundcolor);
+        --backgroundcolor: white;
+        --textcolor: var(--prim);
+    }
 
-.rpc-button.rpc-button-black {
-  --bordercolor: var(--backgroundcolor);
-  --backgroundcolor: black;
-  --textcolor: white;
-}
+    &.black {
+        --bordercolor: var(--backgroundcolor);
+        --backgroundcolor: black;
+        --textcolor: white;
+    }
 
-.rpc-button.rpc-button-line {
-  --bordercolor: var(--backgroundcolor);
-  background-color: transparent;
-  --textcolor: var(--backgroundcolor);
-}
+    &.line {
+        --bordercolor: var(--backgroundcolor);
+        background-color: transparent;
+        --textcolor: var(--backgroundcolor);
+    }
 
-.rpc-button.rpc-button-neg:hover,
-.rpc-button.rpc-button-line:hover,
-.rpc-button.rpc-button-black:hover {
-  opacity: 0.8;
-}
+    &.negative:hover,
+    &.black:hover,
+    &.line:hover {
+        opacity: 0.8;
+    }
 
-.rpc-button.rpc-button-arrow::after {
-  content: "\203a";
-  font-size: 1.5em;
-  line-height: 0;
-  margin-left: 0.15em;
-  display: inline-block;
-  transition: 0.125s ease transform;
-}
+    &.arrow {
+        &::after {
+            content: "\203a";
+            font-size: 1.5em;
+            line-height: 0;
+            margin-left: 0.15em;
+            display: inline-block;
+            transition: 0.125s ease transform;
+        }
 
-.rpc-button.rpc-button-arrow:hover::after {
-  transform: translateX(0.15em);
+        &:hover::after {
+            transform: translateX(0.15em);
+        }
+    }
 }

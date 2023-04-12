@@ -13,6 +13,20 @@ get_template_part( "template-parts/elements/credits");
     }
     wp_head()
     ?>
+    <script src="/wp-content/themes/rem-publicam-capessere/public/Hyphenopoly_Loader.js"></script>
+    <script>
+    Hyphenopoly.config({
+        require: {
+            "de": "FORCEHYPHENOPOLY"
+        },
+        setup: {
+            selectors: {
+                "#main-content": {}
+            },
+            dontHyphenateClass: "nohyphen"
+        }
+    });
+    </script>
 </head>
 <?php
 $bodyclasses = [];

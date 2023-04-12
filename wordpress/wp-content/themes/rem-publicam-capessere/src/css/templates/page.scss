@@ -25,7 +25,8 @@
     padding-bottom: calc(100% / 16 * 9);
 }
 
-.page-heroine-thumbnail-container img, .page-heroine-thumbnail-gradient {
+.page-heroine-thumbnail-container img,
+.page-heroine-thumbnail-gradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,16 +55,22 @@
 }
 
 .has-thumbnail .page-heroine #page-heroine-title {
-    position: relative;
+    position: absolute;
     z-index: 10;
-    margin-top: -2.3em;
-    padding: 0.75em;
+    padding: 0.5em 0.75em;
+    bottom: 0;
+    line-height: 1.15;
+}
+
+.has-thumbnail .page-heroine {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 @media screen and (max-width: 780px) {
     .has-thumbnail .page-heroine #page-heroine-title {
         margin-top: -1.8em;
-        padding: 0.5em;
+        padding: 0.4em 0.5em;
         font-size: 2.5rem;
     }
 }
@@ -71,18 +78,20 @@
 @media screen and (max-width: 480px) {
     .has-thumbnail .page-heroine #page-heroine-title {
         margin-top: -1.6em;
-        padding: 0.4em;
+        padding: 0.3em 0.4em;
         font-size: 2rem;
     }
 }
 
 /* Homepage Block Wrappers */
-body.page .CallToActionWrapper, body.page .PositionsWrapper {
+body.page .CallToActionWrapper,
+body.page .PositionsWrapper {
     width: 100vw;
     margin-left: calc((100vw - 680px) / -2);
 }
 
 @media screen and (max-width: 712px) {
+
     body.page .CallToActionWrapper,
     body.page .PositionsWrapper {
         margin-left: -1rem;

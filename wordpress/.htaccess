@@ -1,19 +1,5 @@
-#This Apache config file was created by Duplicator Installer on 2022-11-15 17:26:08.
-#The original can be found in archived file with the name .htaccess__[HASH]
-
 # BEGIN WordPress
-# Die Anweisungen (Zeilen) zwischen „BEGIN WordPress“ und „END WordPress“ sind
-# dynamisch generiert und sollten nur über WordPress-Filter geändert werden.
-# Alle Änderungen an den Anweisungen zwischen diesen Markierungen werden überschrieben.
 
-
-Options +FollowSymLinks -MultiViews
-RewriteEngine On
-RewriteBase /
-RewriteRule ^api/?$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]
-RewriteRule ^api/(.+)$ /wp-content/themes/rem-publicam-capessere/api/index.php [L,NC]
-
-<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
@@ -21,6 +7,5 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-</IfModule>
 
 # END WordPress
