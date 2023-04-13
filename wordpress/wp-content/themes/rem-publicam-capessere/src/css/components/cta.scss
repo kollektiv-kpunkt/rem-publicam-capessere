@@ -21,6 +21,16 @@
             max-width: 627.5px;
             margin-left: auto;
             margin-right: auto;
+            transform: translateX(-100vw);
+            transition: 0.75s transform cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &.inViewport {
+                transform: translateX(0);
+            }
+
+            @media (max-width: 980px) {
+                transform: translateX(0);
+            }
 
             img {
                 aspect-ratio: 1/1;
@@ -67,10 +77,65 @@
         .rpc-cta-form-wrapper {
             padding-top: calc(var(--inset) + 1rem);
             padding-bottom: calc(var(--inset) + 1rem);
+            transform: translateX(100vw);
+            transition: 0.75s transform cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &.inViewport {
+                transform: translateX(0);
+            }
 
             @media (max-width: 980px) {
                 padding-bottom: calc(2.5 * var(--inset));
+                transform: translateX(0);
             }
+        }
+    }
+}
+
+.share-buttons {
+    --gap: 0.5rem;
+    --columns: 2;
+    --width: calc((100% - (var(--columns) - 1) * var(--gap)) / var(--columns));
+
+    column-gap: var(--gap);
+    row-gap: calc(0.5 * var(--gap));
+
+    @media (max-width: 980px) {
+        --columns: 1;
+    }
+
+    .rpc-button {
+        width: var(--width);
+        font-size: 1rem;
+
+        background-color: var(--bgcolor);
+        color: var(--color);
+
+        --bgcolor: theme("colors.white");
+        --color: theme("colors.primary");
+
+        &[data-type="facebook"] {
+            --content: "\f09a";
+            --bgcolor: #3b5998;
+            --color: white;
+        }
+
+        &[data-type="twitter"] {
+            --content: "\f099";
+            --bgcolor: #1da1f2;
+            --color: white;
+        }
+
+        &[data-type="telegram"] {
+            --content: "\f2c6";
+            --bgcolor: #0088cc;
+            --color: white;
+        }
+
+        &[data-type="whatsapp"] {
+            --content: "\f232";
+            --bgcolor: #25d366;
+            --color: white;
         }
     }
 }

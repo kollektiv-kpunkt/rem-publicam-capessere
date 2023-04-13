@@ -48,26 +48,6 @@
             "delay": 0
         },
         {
-            "key": "field_643419ecc2dcb",
-            "label": "Form title",
-            "name": "form_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_64340ab67d3cc",
             "label": "Webhook",
             "name": "webhook",
@@ -98,14 +78,56 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "pagination": 0,
             "min": 1,
             "max": 10,
-            "collapsed": "",
+            "collapsed": "field_64366ddebe417",
             "button_label": "Add Step",
             "rows_per_page": 20,
             "sub_fields": [
+                {
+                    "key": "field_64366ddebe417",
+                    "label": "Step Identifier",
+                    "name": "id",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6434032131df9"
+                },
+                {
+                    "key": "field_64366df2be418",
+                    "label": "Text before field",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "parent_repeater": "field_6434032131df9"
+                },
                 {
                     "key": "field_6434043531dfb",
                     "label": "Fields",
@@ -120,7 +142,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
+                    "layout": "row",
                     "min": 1,
                     "max": 10,
                     "collapsed": "field_6434045a31dfc",
@@ -152,8 +174,69 @@
                         }
                     ],
                     "parent_repeater": "field_6434032131df9"
+                },
+                {
+                    "key": "field_6436928de3912",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6434032131df9"
                 }
             ]
+        },
+        {
+            "key": "field_6436911287731",
+            "label": "Share Content",
+            "name": "share_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6436910287730",
+            "label": "Share Text",
+            "name": "share_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -174,5 +257,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681136119
+    "modified": 1681298116
 }
