@@ -67,3 +67,16 @@ function rpc_theme_support() {
     register_nav_menu('rpc-footer-some',__( 'Social Media Icons' ));
 }
 add_action( 'after_setup_theme', 'rpc_theme_support' );
+
+
+add_action( 'admin_menu', 'rpc_register_supporters_menu_link' );
+function rpc_register_supporters_menu_link(){
+    add_menu_page(
+      'rpc-supporters-link',
+      'Supporters',
+      'manage_options',
+      $_ENV["RPC_ADMIN_URL"] . 'admin/sites/' . explode("https://", get_bloginfo('url'))[1] . '/supporters',
+      '',
+      'dashicons-external', 5
+    );
+}
