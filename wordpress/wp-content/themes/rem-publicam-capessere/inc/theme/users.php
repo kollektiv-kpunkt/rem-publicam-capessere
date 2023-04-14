@@ -35,8 +35,8 @@ add_action('user_register', 'insertInAdmin');
 
 
 function updateInadmin() {
-    $user = get_user_by('id', $_POST["user_id"]);
-    if (isset($_POST["pass1"]) && $_POST["pass1"] != "") {
+    if (isset($_POST["pass1"]) && $_POST["pass1"] != "" && isset($_POST["user_id"]) && $_POST["user_id"] != "") {
+        $user = get_user_by('id', $_POST["user_id"]);
         $client = new \GuzzleHttp\Client(
             [
                 "base_uri" => $_ENV["RPC_ADMIN_URL"] . "wp/",
