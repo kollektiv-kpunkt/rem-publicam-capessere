@@ -25,7 +25,7 @@ function insertInAdmin($userId) {
     }
     $res = json_decode($req->getBody()->getContents());
     if ($res->status == "ok") {
-        update_user_meta($userId, "rpc_user_id", $res->user->id);
+        update_user_meta($userId, "rpc_user_id", $res->data->user->id);
     } else {
         wp_die("Error while registering with RPC API");
     }
@@ -53,8 +53,10 @@ function updateInadmin() {
             ]
         ]);
         $res = json_decode($req->getBody()->getContents());
+        var_dump($res);
+        exit;
         if ($res->status == "ok") {
-            update_user_meta($userId, "rpc_user_id", $res->user->id);
+            update_user_meta($userId, "rpc_user_id", $res->data->user->id);
         } else {
             wp_die("Error while registering with RPC API");
         }
