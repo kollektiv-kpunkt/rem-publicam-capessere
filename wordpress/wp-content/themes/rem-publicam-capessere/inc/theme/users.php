@@ -53,7 +53,6 @@ function updateInadmin() {
             ]
         ]);
         $res = json_decode($req->getBody()->getContents());
-        var_dump($res);
         exit;
         if ($res->status == "ok") {
             update_user_meta($userId, "rpc_user_id", $res->data->user->id);
